@@ -17,7 +17,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="@string/new_event"
-            app:layout_constraintBottom_toTopOf="@+id/scrollView4"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView_newRecord"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
             app:layout_constraintVertical_bias="0.49" />
 
         <ScrollView
-            android:id="@+id/scrollView4"
+            android:id="@+id/scrollView_newRecord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
