@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#303030"
+        tools:ignore="MissingClass">
+
+        <TextView
+            android:id="@+id/text_newEvent"
+            style="@style/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/new_event"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.49" />
+
+        <ScrollView
+            android:id="@+id/scrollView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_newEvent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_eventName"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/event"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_maintenanceTask"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/editText_maintenanceTask"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread" />
+
+                <EditText
+                    android:id="@+id/editText_maintenanceTask"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/maintenance_task"
+                    android:text="@string/maintenance_task"
+                    app:layout_constraintBottom_toTopOf="@+id/text_date"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/text_date"
+                    app:layout_constraintTop_toBottomOf="@+id/text_eventName" />
+
+                <TextView
+                    android:id="@+id/text_date"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_date"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/editText_date"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_maintenanceTask" />
+
+                <TextView
+                    android:id="@+id/text_carMileage"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/car_mileage"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_mileageValue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/editText_mileageValue"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextNumber3" />
+
+                <EditText
+                    android:id="@+id/editText_mileageValue"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toTopOf="@+id/text_price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/text_price"
+                    app:layout_constraintTop_toBottomOf="@+id/text_carMileage" />
+
+                <TextView
+                    android:id="@+id/text_price"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/price"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/editText_price"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_mileageValue" />
+
+                <EditText
+                    android:id="@+id/editText_price"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toTopOf="@+id/text_serviceStation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/text_serviceStation"
+                    app:layout_constraintTop_toBottomOf="@+id/text_price" />
+
+                <TextView
+                    android:id="@+id/text_serviceStation"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="196dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/service_station"
+                    app:layout_constraintBottom_toTopOf="@+id/editTextText_serviceName"
+                    app:layout_constraintEnd_toStartOf="@+id/text_rating"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_price" />
+
+
+                <TextView
+                    android:id="@+id/text_rating"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="196dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/rating"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_serviceStation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/text_serviceStation" />
+
+                <EditText
+                    android:id="@+id/editTextText_serviceName"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="199dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="@string/service_name"
+                    app:layout_constraintBottom_toTopOf="@+id/text_comment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/text_comment"
+                    app:layout_constraintTop_toBottomOf="@+id/text_serviceStation" />
+
+                <TextView
+                    android:id="@+id/text_comment"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/comment"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_comment"
+                    app:layout_constraintStart_toStartOf="@+id/editText_comment"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextText_serviceName" />
+
+                <EditText
+                    android:id="@+id/editText_comment"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="@string/comment"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/button_create"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_comment" />
+
+                <EditText
+                    android:id="@+id/editText_date"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="date"
+                    app:layout_constraintBottom_toTopOf="@+id/text_serviceLife"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/text_serviceLife"
+                    app:layout_constraintTop_toBottomOf="@+id/text_date" />
+
+                <TextView
+                    android:id="@+id/text_serviceLife"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/service_life"
+                    app:layout_constraintBottom_toTopOf="@+id/editTextNumber3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/editTextNumber3"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_date" />
+
+                <EditText
+                    android:id="@+id/editTextNumber3"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toTopOf="@+id/text_carMileage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/text_carMileage"
+                    app:layout_constraintTop_toBottomOf="@+id/text_serviceLife" />
+
+                <TextView
+                    android:id="@+id/text_months"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/months"
+                    app:layout_constraintBottom_toBottomOf="@+id/editText_mileageValue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/editText_mileageValue"
+                    app:layout_constraintTop_toTopOf="@+id/editText_mileageValue" />
+
+                <Button
+                    android:id="@+id/button_create"
+                    android:layout_width="63dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/rounded_button"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#FFFFFF"
+                    android:textSize="36sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:text="+" />
+
+                <TextView
+                    android:id="@+id/text_ok"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="@android:string/ok"
+                    app:layout_constraintBottom_toBottomOf="@+id/switch_rating"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/switch_rating"
+                    app:layout_constraintTop_toTopOf="@+id/switch_rating" />
+
+                <Switch
+                    android:id="@+id/switch_rating"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="123dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/not_ok"
+                    app:layout_constraintBottom_toBottomOf="@+id/editTextText_serviceName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/editTextText_serviceName"
+                    app:layout_constraintTop_toBottomOf="@+id/text_rating" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

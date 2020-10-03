@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Vesere</string>
+    <string name="title_chooseACategory">Choose a category for displaying</string>
+    <string name="oil_changing">Oil change</string>
+    <string name="antifreeze_changing">Antifreeze change</string>
+    <string name="maintenance">Maintenance</string>
+    <string name="computer_diagnostics">Computer diagnostics</string>
+    <string name="brake_repair">Brake repair</string>
+    <string name="weel_balance">Weel balance</string>
+    <string name="engine_work">Engine work</string>
+    <string name="other">Other</string>
+    <string name="electrical_systems">Electrical systems</string>
+    <string name="new_event">New Event</string>
+    <string name="event">Event</string>
+    <string name="price">Price</string>
+    <string name="comment">Comment</string>
+    <string name="service_station">Service Station</string>
+    <string name="service_name">Service\'s name</string>
+    <string name="maintenance_task">Maintenance Task</string>
+    <string name="date">Date</string>
+    <string name="service_life">Service Life</string>
+    <string name="car_mileage">Car mileage</string>
+    <string name="months">months</string>
+    <string name="rating">Rating</string>
+    <string name="not_ok">Not Ok</string>
+    <string name="ok">Ok</string>
+    <string name="events">Events</string>
+</resources>
