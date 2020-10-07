@@ -25,4 +25,9 @@
     <string name="not_ok">Not Ok</string>
     <string name="ok">Ok</string>
     <string name="events">Events</string>
+    <string name="event1_text">Oil change \nDate: 08.09.2019 \nService Life: 1 year \nCar mileage: 123 876 km \nComment: -</string>
+    <string name="event2_text">Computer diagnostics \nDate: 12.03.2020 \nService Life: - \nCar mileage: 124 320 km \nComment: New diagnostics in 1 month \nService station: Rob&amp;Bob \nService"'"s Rating: Ok\nPrice: $12</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="plus">&#43;</string>
 </resources>

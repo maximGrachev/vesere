@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#303030"
@@ -29,10 +28,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_newEvent">
 
@@ -78,120 +77,6 @@
                     app:layout_constraintStart_toStartOf="@+id/editText_date"
                     app:layout_constraintTop_toBottomOf="@+id/editText_maintenanceTask" />
 
-                <TextView
-                    android:id="@+id/text_carMileage"
-                    style="@style/text_newRecordFragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/car_mileage"
-                    app:layout_constraintBottom_toTopOf="@+id/editText_mileageValue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/editText_mileageValue"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextNumber3" />
-
-                <EditText
-                    android:id="@+id/editText_mileageValue"
-                    style="@style/editText_newRecordFragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    app:layout_constraintBottom_toTopOf="@+id/text_price"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/text_price"
-                    app:layout_constraintTop_toBottomOf="@+id/text_carMileage" />
-
-                <TextView
-                    android:id="@+id/text_price"
-                    style="@style/text_newRecordFragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/price"
-                    app:layout_constraintBottom_toTopOf="@+id/editText_price"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/editText_price"
-                    app:layout_constraintTop_toBottomOf="@+id/editText_mileageValue" />
-
-                <EditText
-                    android:id="@+id/editText_price"
-                    style="@style/editText_newRecordFragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    app:layout_constraintBottom_toTopOf="@+id/text_serviceStation"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/text_serviceStation"
-                    app:layout_constraintTop_toBottomOf="@+id/text_price" />
-
-                <TextView
-                    android:id="@+id/text_serviceStation"
-                    style="@style/text_newRecordFragment"
-                    android:layout_width="196dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/service_station"
-                    app:layout_constraintBottom_toTopOf="@+id/editTextText_serviceName"
-                    app:layout_constraintEnd_toStartOf="@+id/text_rating"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editText_price" />
-
-
-                <TextView
-                    android:id="@+id/text_rating"
-                    style="@style/text_newRecordFragment"
-                    android:layout_width="196dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/rating"
-                    app:layout_constraintBottom_toBottomOf="@+id/text_serviceStation"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/text_serviceStation" />
-
-                <EditText
-                    android:id="@+id/editTextText_serviceName"
-                    style="@style/editText_newRecordFragment"
-                    android:layout_width="199dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="@string/service_name"
-                    app:layout_constraintBottom_toTopOf="@+id/text_comment"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/text_comment"
-                    app:layout_constraintTop_toBottomOf="@+id/text_serviceStation" />
-
-                <TextView
-                    android:id="@+id/text_comment"
-                    style="@style/text_newRecordFragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/comment"
-                    app:layout_constraintBottom_toTopOf="@+id/editText_comment"
-                    app:layout_constraintStart_toStartOf="@+id/editText_comment"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText_serviceName" />
-
-                <EditText
-                    android:id="@+id/editText_comment"
-                    style="@style/editText_newRecordFragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="@string/comment"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/button_create"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_comment" />
-
                 <EditText
                     android:id="@+id/editText_date"
                     style="@style/editText_newRecordFragment"
@@ -226,8 +111,10 @@
                     android:inputType="number"
                     app:layout_constraintBottom_toTopOf="@+id/text_carMileage"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/text_carMileage"
+                    app:layout_constraintEnd_toStartOf="@+id/text_months"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_serviceLife" />
 
                 <TextView
@@ -235,29 +122,112 @@
                     style="@style/editText_newRecordFragment"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
                     android:text="@string/months"
-                    app:layout_constraintBottom_toBottomOf="@+id/editText_mileageValue"
+                    app:layout_constraintBottom_toBottomOf="@+id/editTextNumber3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/editTextNumber3"
+                    app:layout_constraintTop_toTopOf="@+id/editTextNumber3" />
+
+                <TextView
+                    android:id="@+id/text_carMileage"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/car_mileage"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_mileageValue"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/editText_mileageValue"
-                    app:layout_constraintTop_toTopOf="@+id/editText_mileageValue" />
-
-                <Button
-                    android:id="@+id/button_create"
-                    android:layout_width="63dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/rounded_button"
-                    android:fontFamily="sans-serif-light"
-                    android:textColor="#FFFFFF"
-                    android:textSize="36sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0"
-                    tools:text="+" />
+                    app:layout_constraintTop_toBottomOf="@+id/editTextNumber3" />
+
+                <EditText
+                    android:id="@+id/editText_mileageValue"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toTopOf="@+id/text_price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_carMileage" />
+
+                <TextView
+                    android:id="@+id/text_price"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/price"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_mileageValue" />
+
+                <EditText
+                    android:id="@+id/editText_price"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toTopOf="@+id/text_serviceStation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_price" />
+
+                <TextView
+                    android:id="@+id/text_serviceStation"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="196dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/service_station"
+                    app:layout_constraintBottom_toTopOf="@+id/editTextText_serviceName"
+                    app:layout_constraintEnd_toStartOf="@+id/text_rating"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/text_price"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_price" />
+
+
+                <TextView
+                    android:id="@+id/text_rating"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="196dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rating"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_serviceStation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/editTextText_serviceName"
+                    app:layout_constraintTop_toTopOf="@+id/text_serviceStation" />
+
+                <EditText
+                    android:id="@+id/editTextText_serviceName"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="197dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="@string/service_name"
+                    app:layout_constraintBottom_toTopOf="@+id/text_comment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/text_comment"
+                    app:layout_constraintTop_toBottomOf="@+id/text_serviceStation" />
+
+                <Switch
+                    android:id="@+id/switch_rating"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="123dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/not_ok"
+                    app:layout_constraintBottom_toBottomOf="@+id/editTextText_serviceName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/text_rating"
+                    app:layout_constraintTop_toBottomOf="@+id/text_rating" />
 
                 <TextView
                     android:id="@+id/text_ok"
@@ -271,21 +241,51 @@
                     app:layout_constraintStart_toEndOf="@+id/switch_rating"
                     app:layout_constraintTop_toTopOf="@+id/switch_rating" />
 
-                <Switch
-                    android:id="@+id/switch_rating"
-                    style="@style/editText_newRecordFragment"
-                    android:layout_width="123dp"
+                <TextView
+                    android:id="@+id/text_comment"
+                    style="@style/text_newRecordFragment"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/not_ok"
-                    app:layout_constraintBottom_toBottomOf="@+id/editTextText_serviceName"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@string/comment"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_comment"
+                    app:layout_constraintStart_toStartOf="@+id/editText_comment"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextText_serviceName" />
+
+                <EditText
+                    android:id="@+id/editText_comment"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="@string/comment"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/editTextText_serviceName"
-                    app:layout_constraintTop_toBottomOf="@+id/text_rating" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_comment" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
 
+    <Button
+        android:id="@+id/button_create_allRec"
+        android:layout_width="63dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="@string/plus" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
