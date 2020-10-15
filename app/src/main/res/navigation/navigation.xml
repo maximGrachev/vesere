@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_all_records" >
         <action
             android:id="@+id/action_allRecordsFragment_to_newRecordFragment"
-            app:destination="@id/newRecordFragment" />
+            app:destination="@id/newRecordFragment"
+            app:popUpTo="@id/titleFragment" />
     </fragment>
     <fragment
         android:id="@+id/newRecordFragment"
@@ -21,7 +22,8 @@
         tools:layout="@layout/fragment_new_record" >
         <action
             android:id="@+id/action_newRecordFragment_to_allRecordsFragment"
-            app:destination="@id/allRecordsFragment" />
+            app:destination="@id/allRecordsFragment"
+            app:popUpTo="@id/titleFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"

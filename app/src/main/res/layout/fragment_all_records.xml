@@ -11,8 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#303030">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/text_allEvents"
@@ -27,10 +26,12 @@
         <ScrollView
             android:id="@+id/scrollView_allRecords"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="64dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/button_create_newRec"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_allEvents"
@@ -47,7 +48,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="@string/event1_text"
-                    android:textColor="#80CBC3"
+                    android:textColor="#2A847A"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@+id/text_event2"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +62,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="@string/event2_text"
-                    android:textColor="#80CBC3"
+                    android:textColor="#2A847A"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@+id/button_edit"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -99,18 +100,20 @@
         </ScrollView>
 
         <Button
-            android:id="@+id/button_create_allRec"
-            android:layout_width="63dp"
-            android:layout_height="64dp"
+            android:id="@+id/button_create_allRecords"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_button"
             android:fontFamily="sans-serif-light"
+            android:text="@string/add"
             android:textColor="#303030"
-            android:textSize="36sp"
+            android:textSize="24sp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="+" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
