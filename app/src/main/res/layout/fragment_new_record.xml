@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ru.maxgrachev.vesere.FragmentNewRecord">
+
+    <data>
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#303030"
-        tools:ignore="MissingClass">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/text_newEvent"
@@ -57,8 +70,8 @@
                     style="@style/editText_newRecordFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:autofillHints="@string/maintenance_task"
                     android:hint="@string/maintenance_task"
-                    android:text="@string/maintenance_task"
                     app:layout_constraintBottom_toTopOf="@+id/text_date"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -96,14 +109,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/service_life"
-                    app:layout_constraintBottom_toTopOf="@+id/editTextNumber3"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_serviceLife"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/editTextNumber3"
+                    app:layout_constraintStart_toStartOf="@+id/editText_serviceLife"
                     app:layout_constraintTop_toBottomOf="@+id/editText_date" />
 
                 <EditText
-                    android:id="@+id/editTextNumber3"
+                    android:id="@+id/editText_serviceLife"
                     style="@style/editText_newRecordFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -123,11 +136,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/months"
-                    app:layout_constraintBottom_toBottomOf="@+id/editTextNumber3"
+                    app:layout_constraintBottom_toBottomOf="@+id/editText_serviceLife"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/editTextNumber3"
-                    app:layout_constraintTop_toTopOf="@+id/editTextNumber3" />
+                    app:layout_constraintStart_toEndOf="@+id/editText_serviceLife"
+                    app:layout_constraintTop_toTopOf="@+id/editText_serviceLife" />
 
                 <TextView
                     android:id="@+id/text_carMileage"
@@ -139,7 +152,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextNumber3" />
+                    app:layout_constraintTop_toBottomOf="@+id/editText_serviceLife" />
 
                 <EditText
                     android:id="@+id/editText_mileageValue"
@@ -209,8 +222,8 @@
                     android:layout_width="197dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="@string/service_name"
                     android:inputType="textPersonName"
-                    android:text="@string/service_name"
                     app:layout_constraintBottom_toTopOf="@+id/text_comment"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -257,35 +270,33 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="@string/comment"
                     android:inputType="textPersonName"
-                    android:text="@string/comment"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_comment" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
+    </LinearLayout>
 
     <Button
-        android:id="@+id/button_create_allRec"
-        android:layout_width="63dp"
+        android:id="@+id/button_create_newRec"
+        android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_gravity="bottom|right"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_button"
+        android:cursorVisible="false"
         android:fontFamily="sans-serif-light"
-        android:textColor="#FFFFFF"
+        android:text="@string/plus"
+        android:textColor="#303030"
         android:textSize="36sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:text="@string/plus" />
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

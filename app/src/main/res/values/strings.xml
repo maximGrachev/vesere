@@ -29,5 +29,7 @@
     <string name="event2_text">Computer diagnostics \nDate: 12.03.2020 \nService Life: - \nCar mileage: 124 320 km \nComment: New diagnostics in 1 month \nService station: Rob&amp;Bob \nService"'"s Rating: Ok\nPrice: $12</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
-    <string name="plus">&#43;</string>
+    <string name="plus">+</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
