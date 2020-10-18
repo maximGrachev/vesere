@@ -5,6 +5,9 @@
     tools:context="ru.maxgrachev.vesere.FragmentNewRecord">
 
     <data>
+        <variable
+            name="newRecordViewModel"
+            type="ru.maxgrachev.vesere.newrecord.NewRecordViewModel" />
 
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -295,7 +298,8 @@
         android:textSize="36sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
+        android:onClick="@{()->newRecordViewModel.addNewEvent()}"
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

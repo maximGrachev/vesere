@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import ru.maxgrachev.vesere.R
+import ru.maxgrachev.vesere.database.allrecords.EventDatabase
 import ru.maxgrachev.vesere.databinding.FragmentAllRecordsBinding
 
 class AllRecordsFragment: Fragment() {
@@ -19,6 +21,15 @@ class AllRecordsFragment: Fragment() {
         binding.buttonCreateAllRecords.setOnClickListener{v: View ->
             v.findNavController().navigate(R.id.action_allRecordsFragment_to_newRecordFragment)
         }
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = EventDatabase.getInstance(application).eventDatabaseDao
+        val viewModelFactory = AllRecordsViewModelFactory(dataSource, application)
+        val allRecordsViewModel = ViewModelProvider(this, viewModelFactory).get(AllRecordsViewModel::class.java)
+
+        binding.setLifecycleOwner(this)
+        binding.allRecordsViewModel = allRecordsViewModel
+
         return binding.root
     }
 }

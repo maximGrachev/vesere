@@ -30,8 +30,14 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="plus">+</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add">Add</string>
     <string name="settings">Settings</string>
+
+<!--    &lt;!&ndash; Output to TextView styled with HTML &ndash;&gt;-->
+<!--    <string name="title"><![CDATA[<h3>HERE IS YOUR SLEEP DATA</h3>]]></string>-->
+<!--    <string name="start_time"><![CDATA[<b>Start:</b>]]></string>-->
+<!--    <string name="end_time"><![CDATA[<b>End:</b>]]></string>-->
+<!--    <string name="quality"><![CDATA[<b>Quality:</b>]]></string>-->
+<!--    <string name="hours_slept"><![CDATA[<b>Hours:Minutes:Seconds</b>]]></string>-->
 </resources>

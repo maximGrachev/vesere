@@ -3,8 +3,6 @@ package ru.maxgrachev.vesere
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import ru.maxgrachev.vesere.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
