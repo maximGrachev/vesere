@@ -23,11 +23,40 @@ class TitleFragment : Fragment() {
             false
         )
         binding.buttonCreateTitle.setOnClickListener{v:View->
-            v.findNavController().navigate(R.id.action_titleFragment_to_newRecordFragment)
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToNewRecordFragment())
         }
-//        binding.button_create_Title.setOnClickListener{v:View->
-////            v.findNavController().navigate()
-//        }
+
+        binding.buttonOil.setOnClickListener{v:View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Oil change"))
+        }
+
+        binding.buttonAntifreeze.setOnClickListener{v:View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Antifreeze change"))
+        }
+
+        binding.buttonMaintenance.setOnClickListener{v:View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Maintenance"))
+        }
+
+        binding.buttonDiagnostics.setOnClickListener{v:View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Computer diagnostics"))
+        }
+
+        binding.buttonBrake.setOnClickListener{v:View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Brake repair"))
+        }
+
+        binding.buttonEngineWork.setOnClickListener{v:View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Engine work"))
+        }
+
+        binding.buttonElectrical.setOnClickListener{v:View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Electrical Systems"))
+        }
+
+        binding.buttonOther.setOnClickListener{v:View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Other"))
+        }
 
         setHasOptionsMenu(true)
         return binding.root

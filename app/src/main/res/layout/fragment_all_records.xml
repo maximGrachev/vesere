@@ -51,52 +51,38 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="@string/event1_text"
+                    android:text="@{allRecordsViewModel.showingRecordsString}"
                     android:textColor="#2A847A"
                     android:textSize="18sp"
-                    app:layout_constraintBottom_toTopOf="@+id/text_event2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/text_event2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/event2_text"
-                    android:textColor="#2A847A"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toTopOf="@+id/button_edit"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_event1" />
 
-                <Button
-                    android:id="@+id/button_edit"
-                    style="@style/title_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-8dp"
-                    android:text="@string/edit"
-                    app:layout_constraintEnd_toStartOf="@+id/button_delete"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_event2" />
+<!--                <Button-->
+<!--                    android:id="@+id/button_edit"-->
+<!--                    style="@style/title_button"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="-8dp"-->
+<!--                    android:text="@string/edit"-->
+<!--                    app:layout_constraintEnd_toStartOf="@+id/button_delete"-->
+<!--                    app:layout_constraintHorizontal_bias="0.5"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/text_event1" />-->
 
-                <Button
-                    android:id="@+id/button_delete"
-                    style="@style/title_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-8dp"
-                    android:background="#EF9A9A"
-                    android:text="@string/delete"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/button_edit"
-                    app:layout_constraintTop_toBottomOf="@+id/text_event2" />
+<!--                <Button-->
+<!--                    android:id="@+id/button_delete"-->
+<!--                    style="@style/title_button"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="-8dp"-->
+<!--                    android:background="#EF9A9A"-->
+<!--                    android:text="@string/delete"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintHorizontal_bias="0.5"-->
+<!--                    app:layout_constraintStart_toEndOf="@+id/button_edit"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/text_event2" />-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

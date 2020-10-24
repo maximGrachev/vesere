@@ -20,9 +20,7 @@ class NewRecordFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding: FragmentNewRecordBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_new_record, container, false)
-        binding.buttonCreateNewRec.setOnClickListener{v:View ->
-            v.findNavController().navigate(R.id.action_newRecordFragment_to_allRecordsFragment)
-        }
+
 
         val application = requireNotNull(this.activity).application
         val dataSource = EventDatabase.getInstance(application).eventDatabaseDao
@@ -32,6 +30,16 @@ class NewRecordFragment: Fragment() {
         binding.setLifecycleOwner(this)
         binding.newRecordViewModel = newRecordViewModel
 
+        binding.buttonCreateNewRec.setOnClickListener{v:View ->
+            v.findNavController().navigate(NewRecordFragmentDirections.actionNewRecordFragmentToAllRecordsFragment("Other"))
+            newRecordViewModel.createNewRecord(
+                binding.editTextMaintenanceTask.text.toString(),
+            binding.editTextServiceLife.text.toString(),
+            binding.editTextMileageValue.text.toString(),
+            binding.editTextPrice.text.toString(),
+            binding.editTextTextServiceName.text.toString(),
+            binding.editTextComment.text.toString())
+        }
 
         return binding.root
     }
