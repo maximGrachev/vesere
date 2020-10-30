@@ -23,14 +23,14 @@ class AllRecordsFragment: Fragment() {
             v.findNavController().navigate(AllRecordsFragmentDirections.actionAllRecordsFragmentToNewRecordFragment())
         }
 
+        val args = AllRecordsFragmentArgs.fromBundle(requireArguments())
         val application = requireNotNull(this.activity).application
         val dataSource = EventDatabase.getInstance(application).eventDatabaseDao
-        val viewModelFactory = AllRecordsViewModelFactory(dataSource, application)
+        val viewModelFactory = AllRecordsViewModelFactory(dataSource, application, args)
         val allRecordsViewModel = ViewModelProvider(this, viewModelFactory).get(AllRecordsViewModel::class.java)
-        val args = AllRecordsFragmentArgs.fromBundle(requireArguments())
 
 
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
         binding.allRecordsViewModel = allRecordsViewModel
         return binding.root
     }

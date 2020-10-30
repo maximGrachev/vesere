@@ -26,6 +26,14 @@ class TitleFragment : Fragment() {
             v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToNewRecordFragment())
         }
 
+        binding.buttonAll.setOnClickListener{v:View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("All"))
+        }
+
+        binding.buttonTransmission.setOnClickListener{v:View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Transmission"))
+        }
+
         binding.buttonOil.setOnClickListener{v:View ->
             v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Oil change"))
         }

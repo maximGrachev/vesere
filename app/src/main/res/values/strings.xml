@@ -40,7 +40,22 @@
     <string name="months_AE"><![CDATA[months]]></string>
     <string name="carMileage_AE"><![CDATA[<b>Car mileage: </b>]]></string>
     <string name="comment_AE"><![CDATA[<b>Comment: </b>]]></string>
-    <string name="price_AE"><![CDATA[<b>Price: </b>]]></string>
+    <string name="price_AE"><![CDATA[<b>Price: </b>$]]></string>
     <string name="serviceStation_AE"><![CDATA[<b>Service Station: </b>]]></string>
+    <string name="transmission">Transmission</string>
+    <string name="all">All</string>
+    <string name="dollarSight">$</string>
+
+    <string-array name="events_array">
+        <item>Oil change</item>
+        <item>Antifreeze change</item>
+        <item>Maintenance</item>
+        <item>Computer diagnostics</item>
+        <item>Brake repair</item>
+        <item>Engine work</item>
+        <item>Electrical Systems</item>
+        <item>Other</item>
+        <item>Transmission</item>
+    </string-array>
 
 </resources>

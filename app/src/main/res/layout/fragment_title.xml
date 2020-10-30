@@ -47,13 +47,37 @@
                     android:layout_height="wrap_content">
 
                     <Button
+                        android:id="@+id/button_all"
+                        style="@style/title_button"
+                        android:text="@string/all"
+                        app:layout_constraintBottom_toTopOf="@+id/button_transmission"
+                        app:layout_constraintEnd_toStartOf="@+id/button_oil"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/button_transmission"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
+
+                    <Button
+                        android:id="@+id/button_transmission"
+                        style="@style/title_button"
+                        android:text="@string/transmission"
+                        app:layout_constraintBottom_toTopOf="@+id/button_maintenance"
+                        app:layout_constraintEnd_toStartOf="@+id/button_antifreeze"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/button_all"
+                        tools:ignore="MissingConstraints" />
+
+                    <Button
                         android:id="@+id/button_maintenance"
                         style="@style/title_button"
                         android:text="@string/maintenance"
                         app:layout_constraintBottom_toTopOf="@+id/button_brake"
                         app:layout_constraintEnd_toStartOf="@+id/button_diagnostics"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/button_oil"
+                        app:layout_constraintTop_toBottomOf="@+id/button_transmission"
                         tools:ignore="MissingConstraints" />
 
                     <Button
@@ -92,7 +116,6 @@
                     <Button
                         android:id="@+id/button_electrical"
                         style="@style/title_button"
-                        android:layout_marginBottom="16dp"
                         android:text="@string/electrical_systems"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/button_other"
@@ -104,7 +127,6 @@
                     <Button
                         android:id="@+id/button_other"
                         style="@style/title_button"
-                        android:layout_marginBottom="16dp"
                         android:singleLine="false"
                         android:text="@string/other"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -118,26 +140,22 @@
                         android:id="@+id/button_oil"
                         style="@style/title_button"
                         android:text="@string/oil_changing"
-                        app:layout_constraintBottom_toTopOf="@+id/button_maintenance"
-                        app:layout_constraintEnd_toStartOf="@+id/button_antifreeze"
+                        app:layout_constraintBottom_toTopOf="@+id/button_antifreeze"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/button_all"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="MissingConstraints" />
 
                     <Button
                         android:id="@+id/button_antifreeze"
                         style="@style/title_button"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
                         android:text="@string/antifreeze_changing"
                         app:layout_constraintBottom_toTopOf="@+id/button_diagnostics"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/button_oil"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/button_transmission"
+                        app:layout_constraintTop_toBottomOf="@+id/button_oil"
                         tools:ignore="MissingConstraints" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>

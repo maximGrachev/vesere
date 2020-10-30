@@ -67,7 +67,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_chainStyle="spread" />
 
-                <EditText
+                <AutoCompleteTextView xmlns:android="http://schemas.android.com/apk/res/android"
                     android:id="@+id/editText_maintenanceTask"
                     style="@style/editText_newRecordFragment"
                     android:inputType="textCapSentences"
@@ -79,6 +79,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/text_date"
+                    android:theme="@style/Autocomplete"
                     app:layout_constraintTop_toBottomOf="@+id/text_eventName" />
 
                 <TextView
@@ -279,6 +280,19 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_comment" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dollarSight"
+                    android:textColor="#6E9894"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/editText_price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/editText_price"
+                    app:layout_constraintTop_toTopOf="@+id/editText_price" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

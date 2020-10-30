@@ -25,10 +25,10 @@ data class Event(
     var price: Int = -1,
 
     @ColumnInfo(name="service_station_name")
-    var serviceStationName: String = "none",
+    var serviceStationName: String = "",
 
     @ColumnInfo(name = "service_rating")
-    var serviceRating: Boolean = true,
+    var serviceRating: Boolean = false,
 
     @ColumnInfo(name="comment")
     var comment: String = "-"

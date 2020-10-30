@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="underline">#6E9894</color>
+    <color name="autocompletet_background_color">#FFFFFF</color>
 </resources>
