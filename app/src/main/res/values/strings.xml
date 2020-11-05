@@ -45,6 +45,7 @@
     <string name="transmission">Transmission</string>
     <string name="all">All</string>
     <string name="dollarSight">$</string>
+    <string name="clear_all">Clear All</string>
 
     <string-array name="events_array">
         <item>Oil change</item>

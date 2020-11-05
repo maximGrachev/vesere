@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="settingViewModel"
+            type="ru.maxgrachev.vesere.setting.SettingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,5 +22,20 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="106dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="32dp"
+            android:background="#EF9A9A"
+            android:text="@string/clear_all"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_Setting"
+            android:onClick="@{()->settingViewModel.onClear()}"
+            tools:text="@string/clear_all" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

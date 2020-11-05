@@ -48,6 +48,9 @@ interface EventDatabaseDao {
     @Query("SELECT * FROM events_table ORDER BY eventID DESC LIMIT 1")
     suspend fun getLastEvent(): Event?
 
+    @Query("DELETE FROM events_table")
+    suspend fun clear()
+
 //    @Query("SELECT * FROM EVENTS_TABLE WHERE event_name="Other" ")
 //    suspend fun getAllOilChangeEvents():LiveData<List<Event>>
 

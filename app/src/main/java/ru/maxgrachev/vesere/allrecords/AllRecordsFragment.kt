@@ -28,10 +28,19 @@ class AllRecordsFragment: Fragment() {
         val dataSource = EventDatabase.getInstance(application).eventDatabaseDao
         val viewModelFactory = AllRecordsViewModelFactory(dataSource, application, args)
         val allRecordsViewModel = ViewModelProvider(this, viewModelFactory).get(AllRecordsViewModel::class.java)
+        val adapter = AllRecordsAdapter()
+        binding.listRecords.adapter = adapter
 
+        allRecordsViewModel.records.observe(viewLifecycleOwner, Observer {
+            it?.let{
+                adapter.data = it
+            }
+        })
 
         binding.lifecycleOwner = this
         binding.allRecordsViewModel = allRecordsViewModel
+
+
         return binding.root
     }
 }

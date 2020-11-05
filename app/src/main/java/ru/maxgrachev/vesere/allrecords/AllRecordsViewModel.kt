@@ -18,7 +18,7 @@ class AllRecordsViewModel(
         Application()
     ) {
 
-    private var records: LiveData<List<Event>>
+    var records: LiveData<List<Event>>
     private var arg: String = arguments.eventTypeKeyWord
 
     init {
@@ -42,6 +42,19 @@ class AllRecordsViewModel(
             "All" -> database.getAllEvents()
             "Transmission" -> database.getAllTransmission()
             else -> database.getAllEvents()
+        }
+    }
+
+    fun onClear() {
+        viewModelScope.launch {
+            // Clear the database table.
+            clear()
+        }
+    }
+
+    private suspend fun clear() {
+        withContext(Dispatchers.IO) {
+            database.clear()
         }
     }
 }

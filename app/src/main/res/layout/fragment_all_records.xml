@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <TextView
             android:id="@+id/text_allEvents"
             style="@style/title_text"
@@ -27,67 +28,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ScrollView
-            android:id="@+id/scrollView_allRecords"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_records"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_allEvents"
-            app:layout_constraintVertical_bias="0.0">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/text_event1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="@{allRecordsViewModel.showingRecordsString}"
-                    android:textColor="#2A847A"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-<!--                <Button-->
-<!--                    android:id="@+id/button_edit"-->
-<!--                    style="@style/title_button"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="-8dp"-->
-<!--                    android:text="@string/edit"-->
-<!--                    app:layout_constraintEnd_toStartOf="@+id/button_delete"-->
-<!--                    app:layout_constraintHorizontal_bias="0.5"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toBottomOf="@+id/text_event1" />-->
-
-<!--                <Button-->
-<!--                    android:id="@+id/button_delete"-->
-<!--                    style="@style/title_button"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="-8dp"-->
-<!--                    android:background="#EF9A9A"-->
-<!--                    android:text="@string/delete"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintHorizontal_bias="0.5"-->
-<!--                    app:layout_constraintStart_toEndOf="@+id/button_edit"-->
-<!--                    app:layout_constraintTop_toBottomOf="@+id/text_event2" />-->
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </ScrollView>
+            app:layout_constraintTop_toBottomOf="@+id/text_allEvents" />
 
         <Button
             android:id="@+id/button_create_allRecords"

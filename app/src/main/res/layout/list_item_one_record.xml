@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="24sp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+
+
+<!--    <?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content">-->
+
+<!--<TextView-->
+<!--    android:id="@+id/text_event"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:text="24.02.2020"-->
+<!--    android:textColor="#2A847A"-->
+<!--    android:textSize="18sp"-->
+<!--    tools:layout_editor_absoluteX="0dp"-->
+<!--    tools:layout_editor_absoluteY="40dp" />-->
+
+<!--<TextView-->
+<!--    android:id="@+id/text_event1"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:text="Oil change"-->
+<!--    android:textColor="#2A847A"-->
+<!--    android:textSize="18sp"-->
+<!--    tools:layout_editor_absoluteY="16dp" />-->
+
+<!--<Button-->
+<!--    android:id="@+id/button_edit"-->
+<!--    style="@style/title_button"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="@string/edit"-->
+<!--    tools:layout_editor_absoluteX="147dp"-->
+<!--    tools:layout_editor_absoluteY="16dp" />-->
+
+<!--<Button-->
+<!--    android:id="@+id/button_delete"-->
+<!--    style="@style/title_button"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:background="#EF9A9A"-->
+<!--    android:text="@string/delete"-->
+<!--    tools:layout_editor_absoluteX="288dp"-->
+<!--    tools:layout_editor_absoluteY="16dp" />-->
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
