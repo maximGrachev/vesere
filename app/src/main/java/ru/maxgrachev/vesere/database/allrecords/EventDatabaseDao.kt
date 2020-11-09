@@ -36,7 +36,7 @@ interface EventDatabaseDao {
     @Query("SELECT * FROM events_table WHERE event_name=\"Electrical Systems\" ORDER BY eventID DESC")
     fun getAllElectricalSystems(): LiveData<List<Event>>
 
-    @Query("SELECT * FROM events_table WHERE event_name=\"Other\" ORDER BY eventID DESC")
+    @Query("SELECT * FROM events_table WHERE event_name = \"Other\" OR (event_name<>\"Oil change\" AND event_name<>\"Antifreeze change\" AND event_name<>\"Maintenance\" AND event_name<>\"Computer diagnostics\" AND event_name<>\"Brake repair\" AND event_name<>\"Engine work\" AND event_name<>\"Electrical Systems\" AND event_name<>\"Transmission\") ORDER BY eventID DESC")
     fun getAllOther(): LiveData<List<Event>>
 
     @Query("SELECT * FROM events_table WHERE event_name=\"Transmission\" ORDER BY eventID DESC")
@@ -50,8 +50,4 @@ interface EventDatabaseDao {
 
     @Query("DELETE FROM events_table")
     suspend fun clear()
-
-//    @Query("SELECT * FROM EVENTS_TABLE WHERE event_name="Other" ")
-//    suspend fun getAllOilChangeEvents():LiveData<List<Event>>
-
 }

@@ -38,23 +38,9 @@ class AllRecordsViewModel(
             "Brake repair" -> database.getAllBreakRepair()
             "Engine work" -> database.getAllEngineWork()
             "Electrical Systems" -> database.getAllElectricalSystems()
-            "Other" -> database.getAllOther()
             "All" -> database.getAllEvents()
             "Transmission" -> database.getAllTransmission()
-            else -> database.getAllEvents()
-        }
-    }
-
-    fun onClear() {
-        viewModelScope.launch {
-            // Clear the database table.
-            clear()
-        }
-    }
-
-    private suspend fun clear() {
-        withContext(Dispatchers.IO) {
-            database.clear()
+            else -> database.getAllOther()
         }
     }
 }
