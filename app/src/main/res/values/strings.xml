@@ -46,6 +46,8 @@
     <string name="all">All</string>
     <string name="dollarSight">$</string>
     <string name="clear_all">Clear All</string>
+    <string name="close">close</string>
+    <string name="delete_all_records">delete_all_records</string>
 
     <string-array name="events_array">
         <item>Oil change</item>

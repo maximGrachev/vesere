@@ -1,51 +1,53 @@
 package ru.maxgrachev.vesere.allrecords
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import ru.maxgrachev.vesere.R
 import ru.maxgrachev.vesere.convertLongToDateString
 import ru.maxgrachev.vesere.database.allrecords.Event
+import ru.maxgrachev.vesere.databinding.ListItemOneRecordBinding
 
-class AllRecordsAdapter: RecyclerView.Adapter<AllRecordsAdapter.ViewHolder>() {
-    var data = listOf<Event>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-
-    override fun getItemCount() = data.size
+class AllRecordsAdapter: ListAdapter<Event, AllRecordsAdapter.ViewHolder>(AllRecordsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = data[position]
+        val item = getItem(position)
         holder.bind(item)
     }
 
-    class ViewHolder private constructor(itemView: View): RecyclerView.ViewHolder(itemView){
-        val textEvent: TextView = itemView.findViewById(R.id.text_event)
-        val textData: TextView = itemView.findViewById(R.id.text_date)
-        val buttonEdit: Button = itemView.findViewById(R.id.button_edit)
-        val buttonDelete: Button = itemView.findViewById(R.id.button_delete)
+    class ViewHolder private constructor(val binding: ListItemOneRecordBinding): RecyclerView.ViewHolder(binding.root){
+        val buttonEdit: Button = binding.buttonEdit
+        val buttonDelete: Button = binding.buttonDelete
 
         fun bind(item: Event) {
-            textEvent.text = item.eventName
-            textData.text = convertLongToDateString(item.dateMilli)
+            binding.event = item
+            binding.executePendingBindings()
         }
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.list_item_one_record, parent, false)
-                return ViewHolder(view)
+                val binding = ListItemOneRecordBinding.inflate(layoutInflater, parent, false)
+                return ViewHolder(binding)
             }
         }
     }
+}
+
+class AllRecordsDiffCallback: DiffUtil.ItemCallback<Event>(){
+    override fun areItemsTheSame(oldItem: Event, newItem: Event): Boolean {
+        return oldItem.eventID == newItem.eventID
+    }
+
+    override fun areContentsTheSame(oldItem: Event, newItem: Event): Boolean {
+        return oldItem == newItem
+    }
+
 }
 
