@@ -48,6 +48,13 @@
     <string name="clear_all">Clear All</string>
     <string name="close">close</string>
     <string name="delete_all_records">delete_all_records</string>
+    <string name="service_station_wc">Service station:</string>
+    <string name="date_wc">Date:</string>
+    <string name="service_life_wc">Service life:</string>
+    <string name="car_mileage_wc">Car mileage:</string>
+    <string name="price_wc">Price:</string>
+    <string name="rating_wc">Rating:</string>
+    <string name="comment_wc">Comment:</string>
 
     <string-array name="events_array">
         <item>Oil change</item>

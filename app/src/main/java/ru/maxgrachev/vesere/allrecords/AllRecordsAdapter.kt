@@ -6,11 +6,11 @@ import android.widget.Button
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import ru.maxgrachev.vesere.convertLongToDateString
 import ru.maxgrachev.vesere.database.allrecords.Event
 import ru.maxgrachev.vesere.databinding.ListItemOneRecordBinding
 
-class AllRecordsAdapter: ListAdapter<Event, AllRecordsAdapter.ViewHolder>(AllRecordsDiffCallback()) {
+class AllRecordsAdapter(val clickListener: EventListener) :
+    ListAdapter<Event, AllRecordsAdapter.ViewHolder>(AllRecordsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -18,16 +18,18 @@ class AllRecordsAdapter: ListAdapter<Event, AllRecordsAdapter.ViewHolder>(AllRec
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(item!!, clickListener)
     }
 
-    class ViewHolder private constructor(val binding: ListItemOneRecordBinding): RecyclerView.ViewHolder(binding.root){
+    class ViewHolder private constructor(val binding: ListItemOneRecordBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         val buttonEdit: Button = binding.buttonEdit
         val buttonDelete: Button = binding.buttonDelete
 
-        fun bind(item: Event) {
+        fun bind(item: Event, clickListener: EventListener) {
             binding.event = item
             binding.executePendingBindings()
+            binding.clickListener = clickListener
         }
 
         companion object {
@@ -40,7 +42,7 @@ class AllRecordsAdapter: ListAdapter<Event, AllRecordsAdapter.ViewHolder>(AllRec
     }
 }
 
-class AllRecordsDiffCallback: DiffUtil.ItemCallback<Event>(){
+class AllRecordsDiffCallback : DiffUtil.ItemCallback<Event>() {
     override fun areItemsTheSame(oldItem: Event, newItem: Event): Boolean {
         return oldItem.eventID == newItem.eventID
     }
@@ -49,5 +51,9 @@ class AllRecordsDiffCallback: DiffUtil.ItemCallback<Event>(){
         return oldItem == newItem
     }
 
+}
+
+class EventListener(val clickListener: (eventID: Long) -> Unit) {
+    fun onClick(event: Event) = clickListener(event.eventID)
 }
 

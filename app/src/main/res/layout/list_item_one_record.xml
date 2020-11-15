@@ -4,9 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="event"
             type="ru.maxgrachev.vesere.database.allrecords.Event" />
+
+        <variable
+            name="clickListener"
+            type="ru.maxgrachev.vesere.allrecords.EventListener" />
 
     </data>
 
@@ -21,6 +26,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:onClick="@{()->clickListener.onClick(event)}"
             android:text="Oil change"
             android:textColor="#2A847A"
             android:textSize="18sp"
@@ -29,7 +35,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:textEvent="@{event}"/>
+            app:textEvent="@{event}" />
 
         <TextView
             android:id="@+id/text_date"
@@ -37,6 +43,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
+            android:onClick="@{()->clickListener.onClick(event)}"
             android:text="24.02.2020"
             android:textColor="#2A847A"
             android:textSize="18sp"
@@ -45,7 +52,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/text_event"
             app:layout_constraintTop_toBottomOf="@+id/text_event"
-            app:textDate="@{event}"/>
+            app:textDate="@{event}" />
 
         <Button
             android:id="@+id/button_edit"

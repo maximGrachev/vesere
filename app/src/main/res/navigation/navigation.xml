@@ -56,5 +56,8 @@
         <action
             android:id="@+id/action_eventDetailsFragment_to_allRecordsFragment"
             app:destination="@id/allRecordsFragment" />
+        <argument
+            android:name="eventKey"
+            app:argType="long" />
     </fragment>
 </navigation>
