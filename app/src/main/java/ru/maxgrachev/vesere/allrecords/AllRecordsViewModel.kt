@@ -2,6 +2,7 @@ package ru.maxgrachev.vesere.allrecords
 
 import android.app.Application
 import androidx.lifecycle.*
+import kotlinx.coroutines.launch
 import ru.maxgrachev.vesere.database.allrecords.Event
 import ru.maxgrachev.vesere.database.allrecords.EventDatabaseDao
 import ru.maxgrachev.vesere.formatEvents
@@ -51,6 +52,12 @@ class AllRecordsViewModel(
 
     fun onEventDetailsNavigated() {
         _navigateToEventDetail.value = null
+    }
+
+    fun deleteEvent(event:Event){
+        viewModelScope.launch {
+            database.delete(event)
+        }
     }
 }
 

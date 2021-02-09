@@ -12,6 +12,10 @@
         <variable
             name="clickListener"
             type="ru.maxgrachev.vesere.allrecords.EventListener" />
+        
+        <variable
+            name="deleteClickListener"
+            type="ru.maxgrachev.vesere.allrecords.DeleteClickListener" />
 
     </data>
 
@@ -59,22 +63,22 @@
             style="@style/title_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:text="@string/edit"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button_delete"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.593" />
 
         <Button
-            android:id="@+id/button_delete"
+            android:id="@+id/button2"
             style="@style/title_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:background="#EF9A9A"
+            android:onClick="@{()->deleteClickListener.onClick(event)}"
             android:text="@string/delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

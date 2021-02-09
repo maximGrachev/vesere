@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -12,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import ru.maxgrachev.vesere.R
+import ru.maxgrachev.vesere.database.allrecords.Event
 import ru.maxgrachev.vesere.database.allrecords.EventDatabase
 import ru.maxgrachev.vesere.databinding.FragmentAllRecordsBinding
 
@@ -35,7 +35,12 @@ class AllRecordsFragment : Fragment() {
             ViewModelProvider(this, viewModelFactory).get(AllRecordsViewModel::class.java)
         val adapter = AllRecordsAdapter(EventListener { eventID ->
             allRecordsViewModel.onEventClicked(eventID)
-        })
+        },
+            DeleteClickListener {
+                 event: Event ->
+                    allRecordsViewModel.deleteEvent(event)
+
+            })
 
         binding.listRecords.adapter = adapter
 
@@ -48,15 +53,17 @@ class AllRecordsFragment : Fragment() {
         allRecordsViewModel.navigateToEventDetail.observe(viewLifecycleOwner, Observer { event ->
             event?.let {
                 this.findNavController()
-                    .navigate(AllRecordsFragmentDirections.actionAllRecordsFragmentToEventDetailsFragment(event))
+                    .navigate(
+                        AllRecordsFragmentDirections.actionAllRecordsFragmentToEventDetailsFragment(
+                            event
+                        )
+                    )
                 allRecordsViewModel.onEventDetailsNavigated()
             }
         })
 
         binding.lifecycleOwner = this
         binding.allRecordsViewModel = allRecordsViewModel
-
-
         return binding.root
     }
 }
