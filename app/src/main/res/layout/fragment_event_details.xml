@@ -50,6 +50,7 @@
 
                     <TextView
                         android:id="@+id/text_serviceStation_details"
+                        android:visibility="@{eventDetailsViewModel.serviceStationIsVisibile}"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -88,6 +89,7 @@
 
                     <TextView
                         android:id="@+id/text_carMileage_details"
+                        android:visibility="@{eventDetailsViewModel.carMileageIsVisibile}"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -100,6 +102,7 @@
                     <TextView
                         android:id="@+id/text_serviceLife_details"
                         style="@style/text_newRecordFragment"
+                        android:visibility="@{eventDetailsViewModel.serviceLifeIsVisibile}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -124,6 +127,7 @@
                         app:layout_constraintTop_toTopOf="@+id/text_rating_details" />
 
                     <TextView
+                        android:visibility="@{eventDetailsViewModel.priceIsVisibile}"
                         android:id="@+id/text_price_details"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
@@ -147,6 +151,7 @@
 
                     <TextView
                         android:id="@+id/textView2"
+                        android:visibility="@{eventDetailsViewModel.priceIsVisibile}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -162,6 +167,7 @@
 
                     <TextView
                         android:id="@+id/text_comment_details"
+                        android:visibility="@{eventDetailsViewModel.commentIsVisibile}"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -190,6 +196,7 @@
 
                     <TextView
                         android:id="@+id/service_life_value_details"
+                        android:visibility="@{eventDetailsViewModel.serviceLifeIsVisibile}"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -205,6 +212,7 @@
 
                     <TextView
                         android:id="@+id/car_mileage_value_details"
+                        android:visibility="@{eventDetailsViewModel.carMileageIsVisibile}"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -220,6 +228,7 @@
 
                     <TextView
                         android:id="@+id/price_value_details"
+                        android:visibility="@{eventDetailsViewModel.priceIsVisibile}"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -235,6 +244,7 @@
 
                     <TextView
                         android:id="@+id/service_station_value_details"
+                        android:visibility="@{eventDetailsViewModel.serviceStationIsVisibile}"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -250,6 +260,7 @@
 
                     <TextView
                         android:id="@+id/textView8"
+                        android:visibility="@{eventDetailsViewModel.commentIsVisibile}"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -265,6 +276,7 @@
 
                     <TextView
                         android:id="@+id/detailsMonthText"
+                        android:visibility="@{eventDetailsViewModel.serviceLifeIsVisibile}"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

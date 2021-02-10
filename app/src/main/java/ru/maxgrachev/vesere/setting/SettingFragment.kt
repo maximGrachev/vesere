@@ -24,7 +24,7 @@ class SettingFragment : Fragment() {
         val binding: FragmentSettingBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_setting, container, false)
         val application = requireNotNull(this.activity).application
         val dataSource = EventDatabase.getInstance(application).eventDatabaseDao
-        val viewModelFactory = SettingViewModelFactory(dataSource)
+        val viewModelFactory = SettingViewModelFactory(dataSource, application)
         val settingViewModel = ViewModelProvider(this, viewModelFactory).get(SettingViewModel::class.java)
 
         settingViewModel.allRecordsDeleted.observe(viewLifecycleOwner, Observer {

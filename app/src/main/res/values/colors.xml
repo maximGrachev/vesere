@@ -5,4 +5,5 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="underline">#6E9894</color>
     <color name="autocompletet_background_color">#FFFFFF</color>
+    <color name="hint_red">#EF9A9A</color>
 </resources>

@@ -50,10 +50,10 @@ fun TextView.setEventServiceStation(item: Event?) {
 @BindingAdapter("textRating")
 fun TextView.setEventRating(item: Event?) {
     item?.let {
-        text = if (item.serviceRating == false) {
-            "Not ok"
-        } else {
+        text = if (item.serviceRating == true) {
             "Ok"
+        } else {
+            "Not ok"
         }
     }
 }

@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import ru.maxgrachev.vesere.R
-import android.widget.AdapterView
+import android.widget.Toast
 import ru.maxgrachev.vesere.database.allrecords.EventDatabase
 import ru.maxgrachev.vesere.databinding.FragmentNewRecordBinding
 
@@ -25,7 +25,7 @@ class NewRecordFragment : Fragment() {
         val binding: FragmentNewRecordBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_new_record, container, false)
 
-
+        var switchRatingValue: Boolean = false
         val application = requireNotNull(this.activity).application
         val dataSource = EventDatabase.getInstance(application).eventDatabaseDao
         val viewModelFactory = NewRecordViewModelFactory(dataSource, application)
@@ -46,9 +46,13 @@ class NewRecordFragment : Fragment() {
             )
         }
         eventNameTextView.setAdapter(adapter)
-//        eventNameTextView.setTextSize(2000, TypedValue.COMPLEX_UNIT_SP.toFloat())
+
 
         binding.buttonCreateNewRec.setOnClickListener { v: View ->
+            if (binding.editTextMaintenanceTask.text.isEmpty()) {
+                Toast.makeText(context, R.string.enter_maintenance_task, Toast.LENGTH_SHORT).show()
+                binding.editTextMaintenanceTask.setTextColor(R.color.hint_red)
+            } else {
                 v.findNavController().navigate(
                     NewRecordFragmentDirections.actionNewRecordFragmentToAllRecordsFragment("All")
                 )
@@ -58,10 +62,11 @@ class NewRecordFragment : Fragment() {
                     binding.editTextMileageValue.text.toString(),
                     binding.editTextPrice.text.toString(),
                     binding.editTextTextServiceName.text.toString(),
-                    binding.editTextComment.text.toString()
+                    binding.editTextComment.text.toString(),
+                    binding.switchRating.isChecked
                 )
             }
-
-            return binding.root
         }
+        return binding.root
     }
+}
