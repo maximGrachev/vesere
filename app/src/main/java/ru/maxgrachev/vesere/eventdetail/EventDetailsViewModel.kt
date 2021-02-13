@@ -1,7 +1,5 @@
 package ru.maxgrachev.vesere.eventdetail;
 
-import android.opengl.Visibility
-import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,49 +17,8 @@ class EventDetailsViewModel(
     private val event = MediatorLiveData<Event>()
     fun getEvent() = event
 
-    var serviceLifeIsVisibile = View.GONE
-    var carMileageIsVisibile = View.GONE
-    var priceIsVisibile = View.GONE
-    var serviceStationIsVisibile = View.GONE
-    var commentIsVisibile = View.GONE
-
-
-    fun setDetailsFragmentVisibility() {
-        serviceLifeIsVisibile = if (event.value?.serviceLife!! < 0) {
-            View.GONE
-        } else {
-            View.VISIBLE
-        }
-
-        carMileageIsVisibile = if (event.value?.carMileage!! < 0) {
-            View.GONE
-        } else {
-            View.VISIBLE
-        }
-
-        priceIsVisibile = if (event.value?.price!! < 0) {
-            View.GONE
-        } else {
-            View.VISIBLE
-        }
-
-        serviceStationIsVisibile = if (event.value?.serviceStationName?.length!! < 2) {
-            View.GONE
-        } else {
-            View.VISIBLE
-        }
-
-        commentIsVisibile = if (event.value?.comment?.length!! < 2) {
-            View.GONE
-        } else {
-            View.VISIBLE
-        }
-    }
-
-
     init {
         event.addSource(database.getEventWithId(eventKey), event::setValue)
-//        setDetailsFragmentVisibility() TODO realize the setDetailsFragmentVisibility() function
     }
 
     private val _navigateToAllRecords = MutableLiveData<Boolean?>()

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="eventDetailsViewModel"
             type="ru.maxgrachev.vesere.eventdetail.EventDetailsViewModel" />
@@ -49,29 +50,6 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/text_serviceStation_details"
-                        android:visibility="@{eventDetailsViewModel.serviceStationIsVisibile}"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/service_station_wc"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="@+id/text_price_details"
-                        app:layout_constraintTop_toBottomOf="@+id/text_price_details" />
-
-                    <TextView
-                        android:id="@+id/text_rating_details"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/rating_wc"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="@+id/text_serviceStation_details"
-                        app:layout_constraintTop_toBottomOf="@+id/text_serviceStation_details" />
-
-                    <TextView
                         android:id="@+id/text_eventName_details"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
@@ -88,57 +66,6 @@
                         app:textEvent="@{eventDetailsViewModel.event}" />
 
                     <TextView
-                        android:id="@+id/text_carMileage_details"
-                        android:visibility="@{eventDetailsViewModel.carMileageIsVisibile}"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/car_mileage_wc"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="@+id/text_serviceLife_details"
-                        app:layout_constraintTop_toBottomOf="@+id/text_serviceLife_details" />
-
-                    <TextView
-                        android:id="@+id/text_serviceLife_details"
-                        style="@style/text_newRecordFragment"
-                        android:visibility="@{eventDetailsViewModel.serviceLifeIsVisibile}"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/service_life_wc"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="@+id/text_date_details"
-                        app:layout_constraintTop_toBottomOf="@+id/text_date_details" />
-
-                    <TextView
-                        android:id="@+id/rating_value_details"
-                        style="@style/editText_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@android:string/ok"
-                        app:textRating="@{eventDetailsViewModel.event}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_rating_details"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/text_rating_details"
-                        app:layout_constraintTop_toTopOf="@+id/text_rating_details" />
-
-                    <TextView
-                        android:visibility="@{eventDetailsViewModel.priceIsVisibile}"
-                        android:id="@+id/text_price_details"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/price_wc"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="@+id/text_carMileage_details"
-                        app:layout_constraintTop_toBottomOf="@+id/text_carMileage_details" />
-
-                    <TextView
                         android:id="@+id/text_date_details"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
@@ -148,36 +75,6 @@
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/text_eventName_details"
                         app:layout_constraintTop_toBottomOf="@+id/text_eventName_details" />
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:visibility="@{eventDetailsViewModel.priceIsVisibile}"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/dollarSight"
-                        android:textColor="#6E9894"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_price_details"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/price_value_details"
-                        app:layout_constraintTop_toTopOf="@+id/text_price_details" />
-
-                    <TextView
-                        android:id="@+id/text_comment_details"
-                        android:visibility="@{eventDetailsViewModel.commentIsVisibile}"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/comment_wc"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/text_rating_details"
-                        app:layout_constraintTop_toBottomOf="@+id/text_rating_details" />
 
                     <TextView
                         android:id="@+id/date_value_details"
@@ -195,88 +92,35 @@
                         app:textDate="@{eventDetailsViewModel.event}" />
 
                     <TextView
+                        android:id="@+id/text_serviceLife_details"
+                        style="@style/text_newRecordFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/service_life_wc"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/text_date_details"
+                        app:layout_constraintTop_toBottomOf="@+id/text_date_details"
+                        app:visibilityServiceLife="@{eventDetailsViewModel.event}" />
+
+                    <TextView
                         android:id="@+id/service_life_value_details"
-                        android:visibility="@{eventDetailsViewModel.serviceLifeIsVisibile}"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="24dp"
                         android:text="12"
-                        app:textServiceLife="@{eventDetailsViewModel.event}"
                         app:layout_constraintBottom_toBottomOf="@+id/text_serviceLife_details"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/text_serviceLife_details"
-                        app:layout_constraintTop_toTopOf="@+id/text_serviceLife_details" />
-
-                    <TextView
-                        android:id="@+id/car_mileage_value_details"
-                        android:visibility="@{eventDetailsViewModel.carMileageIsVisibile}"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="210345"
-                        app:textCarMileage="@{eventDetailsViewModel.event}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_carMileage_details"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/text_carMileage_details"
-                        app:layout_constraintTop_toTopOf="@+id/text_carMileage_details" />
-
-                    <TextView
-                        android:id="@+id/price_value_details"
-                        android:visibility="@{eventDetailsViewModel.priceIsVisibile}"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="24dp"
-                        android:text="20"
-                        app:textPrice="@{eventDetailsViewModel.event}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_price_details"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/text_price_details"
-                        app:layout_constraintTop_toTopOf="@+id/text_price_details" />
-
-                    <TextView
-                        android:id="@+id/service_station_value_details"
-                        android:visibility="@{eventDetailsViewModel.serviceStationIsVisibile}"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Bob and Rob"
-                        app:textServiceStation="@{eventDetailsViewModel.event}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_serviceStation_details"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/text_serviceStation_details"
-                        app:layout_constraintTop_toTopOf="@+id/text_serviceStation_details" />
-
-                    <TextView
-                        android:id="@+id/textView8"
-                        android:visibility="@{eventDetailsViewModel.commentIsVisibile}"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Filter was changed"
-                        app:textComment="@{eventDetailsViewModel.event}"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_comment_details"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/text_comment_details"
-                        app:layout_constraintTop_toTopOf="@+id/text_comment_details" />
+                        app:layout_constraintTop_toTopOf="@+id/text_serviceLife_details"
+                        app:textServiceLife="@{eventDetailsViewModel.event}"
+                        app:visibilityServiceLife="@{eventDetailsViewModel.event}" />
 
                     <TextView
                         android:id="@+id/detailsMonthText"
-                        android:visibility="@{eventDetailsViewModel.serviceLifeIsVisibile}"
                         style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -286,7 +130,167 @@
                         app:layout_constraintBottom_toBottomOf="@+id/service_life_value_details"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/service_life_value_details" />
+                        app:layout_constraintStart_toEndOf="@+id/service_life_value_details"
+                        app:visibilityServiceLife="@{eventDetailsViewModel.event}" />
+
+                    <TextView
+                        android:id="@+id/text_carMileage_details"
+                        style="@style/text_newRecordFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/car_mileage_wc"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/text_serviceLife_details"
+                        app:layout_constraintTop_toBottomOf="@+id/text_serviceLife_details"
+                        app:visibilityCarMileage="@{eventDetailsViewModel.event}" />
+
+                    <TextView
+                        android:id="@+id/car_mileage_value_details"
+                        style="@style/text_newRecordFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="210345"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_carMileage_details"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/text_carMileage_details"
+                        app:layout_constraintTop_toTopOf="@+id/text_carMileage_details"
+                        app:textCarMileage="@{eventDetailsViewModel.event}"
+                        app:visibilityCarMileage="@{eventDetailsViewModel.event}" />
+
+                    <TextView
+                        android:id="@+id/text_price_details"
+                        style="@style/text_newRecordFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/price_wc"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/text_carMileage_details"
+                        app:layout_constraintTop_toBottomOf="@+id/text_carMileage_details"
+                        app:visibilityPrice="@{eventDetailsViewModel.event}" />
+
+                    <TextView
+                        android:id="@+id/price_value_details"
+                        style="@style/text_newRecordFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:text="20"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_price_details"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/text_price_details"
+                        app:layout_constraintTop_toTopOf="@+id/text_price_details"
+                        app:textPrice="@{eventDetailsViewModel.event}"
+                        app:visibilityPrice="@{eventDetailsViewModel.event}" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/dollarSight"
+                        android:textColor="#6E9894"
+                        android:textSize="24sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_price_details"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/price_value_details"
+                        app:layout_constraintTop_toTopOf="@+id/text_price_details"
+                        app:visibilityPrice="@{eventDetailsViewModel.event}" />
+
+                    <TextView
+                        android:id="@+id/text_serviceStation_details"
+                        style="@style/text_newRecordFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/service_station_wc"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/text_price_details"
+                        app:layout_constraintTop_toBottomOf="@+id/text_price_details"
+                        app:visibilityServiceStation="@{eventDetailsViewModel.event}" />
+
+                    <TextView
+                        android:id="@+id/service_station_value_details"
+                        style="@style/text_newRecordFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Bob and Rob"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_serviceStation_details"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/text_serviceStation_details"
+                        app:layout_constraintTop_toTopOf="@+id/text_serviceStation_details"
+                        app:textServiceStation="@{eventDetailsViewModel.event}"
+                        app:visibilityServiceStation="@{eventDetailsViewModel.event}" />
+
+                    <TextView
+                        android:id="@+id/text_rating_details"
+                        style="@style/text_newRecordFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/rating_wc"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/text_serviceStation_details"
+                        app:layout_constraintTop_toBottomOf="@+id/text_serviceStation_details"
+                        app:visibilityRating="@{eventDetailsViewModel.event}" />
+
+                    <TextView
+                        android:id="@+id/rating_value_details"
+                        style="@style/editText_newRecordFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@android:string/ok"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_rating_details"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/text_rating_details"
+                        app:layout_constraintTop_toTopOf="@+id/text_rating_details"
+                        app:textRating="@{eventDetailsViewModel.event}"
+                        app:visibilityRating="@{eventDetailsViewModel.event}" />
+
+
+                    <TextView
+                        android:id="@+id/text_comment_details"
+                        style="@style/text_newRecordFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/comment_wc"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/text_rating_details"
+                        app:layout_constraintTop_toBottomOf="@+id/text_rating_details"
+                        app:visibilityComment="@{eventDetailsViewModel.event}" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        style="@style/text_newRecordFragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Filter was changed"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_comment_details"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/text_comment_details"
+                        app:layout_constraintTop_toTopOf="@+id/text_comment_details"
+                        app:textComment="@{eventDetailsViewModel.event}"
+                        app:visibilityComment="@{eventDetailsViewModel.event}" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>
@@ -301,10 +305,10 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="32dp"
             android:background="#EF9A9A"
+            android:onClick="@{()->eventDetailsViewModel.onClose()}"
             android:text="@string/close"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{()->eventDetailsViewModel.onClose()}"/>
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

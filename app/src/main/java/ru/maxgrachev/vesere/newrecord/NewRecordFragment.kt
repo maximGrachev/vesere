@@ -51,7 +51,7 @@ class NewRecordFragment : Fragment() {
         binding.buttonCreateNewRec.setOnClickListener { v: View ->
             if (binding.editTextMaintenanceTask.text.isEmpty()) {
                 Toast.makeText(context, R.string.enter_maintenance_task, Toast.LENGTH_SHORT).show()
-                binding.editTextMaintenanceTask.setTextColor(R.color.hint_red)
+                binding.editTextMaintenanceTask.setTextColor(R.color.light_red)
             } else {
                 v.findNavController().navigate(
                     NewRecordFragmentDirections.actionNewRecordFragmentToAllRecordsFragment("All")

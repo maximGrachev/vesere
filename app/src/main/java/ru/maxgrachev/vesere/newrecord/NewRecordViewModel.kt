@@ -13,14 +13,6 @@ import ru.maxgrachev.vesere.database.allrecords.EventDatabaseDao
 class NewRecordViewModel(val database: EventDatabaseDao, application: Application) :
     AndroidViewModel(application) {
 
-//    val _serviseRationgSwitchIsChecked = MutableLiveData<Boolean?>()
-//            val serviseRationgSwitchIsChecked: LiveData<Boolean?>
-//            get() = _serviseRationgSwitchIsChecked
-//
-//    fun clickServiseRationgSwitch(isCheched: Boolean?){
-//        _serviseRationgSwitchIsChecked.value = isCheched
-//    }
-
     fun createNewRecord(maintenanceTask: String,
                         serviceLife: String,
                         carMileage: String,

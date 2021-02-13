@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import ru.maxgrachev.vesere.R
 import ru.maxgrachev.vesere.allrecords.AllRecordsViewModel
 import ru.maxgrachev.vesere.allrecords.AllRecordsViewModelFactory
@@ -29,8 +30,20 @@ class SettingFragment : Fragment() {
 
         settingViewModel.allRecordsDeleted.observe(viewLifecycleOwner, Observer {
             if (it == true) {
-                Toast.makeText(context, "All events were deleted", Toast.LENGTH_SHORT).show()
-                settingViewModel.allRecordsDeletedToFalse()
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Delete all records")
+                    .setMessage("Do you want to delete all your records?")
+                    .setNegativeButton("No") { dialog, which ->
+                        dialog.cancel()
+                    }
+                    .setPositiveButton("Yes"){dialog, which ->
+                        settingViewModel.allRecordsDeletedToFalse()
+                        dialog.cancel()
+                        Toast.makeText(context, "All events were deleted", Toast.LENGTH_SHORT).show()
+                    }
+                    .show()
+
+
             }
         })
         binding.settingViewModel = settingViewModel

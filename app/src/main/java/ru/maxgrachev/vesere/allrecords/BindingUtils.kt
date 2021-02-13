@@ -1,5 +1,7 @@
 package ru.maxgrachev.vesere.allrecords
 
+import android.opengl.Visibility
+import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import ru.maxgrachev.vesere.convertLongToDateString
@@ -26,10 +28,32 @@ fun TextView.setEventServiceLife(item: Event?) {
     }
 }
 
+@BindingAdapter("visibilityServiceLife")
+fun TextView.setVisibilityEventServiceLife(item: Event?) {
+    item?.let {
+        visibility = if (item.serviceLife < 0) {
+            View.GONE
+        } else {
+            View.VISIBLE
+        }
+    }
+}
+
 @BindingAdapter("textCarMileage")
 fun TextView.setEventCarMileage(item: Event?) {
     item?.let {
         text = item.carMileage.toString()
+    }
+}
+
+@BindingAdapter("visibilityCarMileage")
+fun TextView.setVisibilityCarMileage(item: Event?) {
+    item?.let {
+        visibility = if (item.carMileage < 0) {
+            View.GONE
+        } else {
+            View.VISIBLE
+        }
     }
 }
 
@@ -40,10 +64,32 @@ fun TextView.setEventPrice(item: Event?) {
     }
 }
 
+@BindingAdapter("visibilityPrice")
+fun TextView.setVisibilityPrice(item: Event?) {
+    item?.let {
+        visibility = if (item.price < 0) {
+            View.GONE
+        } else {
+            View.VISIBLE
+        }
+    }
+}
+
 @BindingAdapter("textServiceStation")
 fun TextView.setEventServiceStation(item: Event?) {
     item?.let {
         text = item.serviceStationName
+    }
+}
+
+@BindingAdapter("visibilityServiceStation")
+fun TextView.setVisibilityServiceStation(item: Event?) {
+    item?.let {
+        visibility = if (item.serviceStationName.length < 2) {
+            View.GONE
+        } else {
+            View.VISIBLE
+        }
     }
 }
 
@@ -58,10 +104,32 @@ fun TextView.setEventRating(item: Event?) {
     }
 }
 
+@BindingAdapter("visibilityRating")
+fun TextView.setVisibilityRating(item: Event?) {
+    item?.let {
+        visibility = if (item.serviceRating == null) {
+            View.GONE
+        } else {
+            View.VISIBLE
+        }
+    }
+}
+
 @BindingAdapter("textComment")
 fun TextView.setEventComment(item: Event?) {
     item?.let {
         text = item.comment
+    }
+}
+
+@BindingAdapter("visibilityComment")
+fun TextView.setVisibilityComment(item: Event?) {
+    item?.let {
+        visibility = if (item.comment.length < 2) {
+            View.GONE
+        } else {
+            View.VISIBLE
+        }
     }
 }
 
