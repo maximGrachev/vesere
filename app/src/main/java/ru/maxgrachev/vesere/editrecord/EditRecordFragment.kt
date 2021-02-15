@@ -8,11 +8,16 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import com.google.android.material.datepicker.MaterialDatePicker
 import ru.maxgrachev.vesere.R
+import ru.maxgrachev.vesere.convertLongToDateString
 import ru.maxgrachev.vesere.database.allrecords.EventDatabase
 import ru.maxgrachev.vesere.databinding.FragmentEditRecordBinding
 import ru.maxgrachev.vesere.eventdetail.EventDetailsViewModel
 import ru.maxgrachev.vesere.eventdetail.EventDetailsViewModelFactory
+import ru.maxgrachev.vesere.newrecord.NewRecordFragmentDirections
+import java.util.*
 
 class EditRecordFragment:Fragment() {
     override fun onCreateView(
@@ -36,21 +41,40 @@ class EditRecordFragment:Fragment() {
 
         binding.lifecycleOwner = this
 
-        binding.buttonUpdateRecord.setOnClickListener {
+        //Material design data picker
+        val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+        binding.editTextDateEditRecord.setOnClickListener() {
+            val datePicker = MaterialDatePicker.Builder.datePicker()
+                .setTitleText("Select a date").build()
+            // set listener when date is selected
+            datePicker.addOnPositiveButtonClickListener {
+                // Create calendar object and set the date to be that returned from selection
+                calendar.time = Date(it)
+                binding.editTextDateEditRecord.setText(convertLongToDateString(calendar.timeInMillis))
+            }
+            datePicker.show(childFragmentManager, "pickedDate")
+        }
+
+        binding.buttonUpdateRecord.setOnClickListener {v: View ->
             if (binding.editTextMaintenanceTaskEditRecord.text.isEmpty()) {
                 Toast.makeText(context, R.string.enter_maintenance_task, Toast.LENGTH_SHORT).show()
-                binding.editTextMaintenanceTaskEditRecord.setHintTextColor(R.color.light_red)
+//                binding.editTextMaintenanceTaskEditRecord.setHintTextColor(R.color.light_red) //TODO change color if TextMaintenanceTask isn't edited
             } else {
-//                it.findNavController().navigate()
-//                newRecordViewModel.createNewRecord(
-//                    binding.editTextMaintenanceTask.text.toString(),
-//                    binding.editTextServiceLife.text.toString(),
-//                    binding.editTextMileageValue.text.toString(),
-//                    binding.editTextPrice.text.toString(),
-//                    binding.editTextTextServiceName.text.toString(),
-//                    binding.editTextComment.text.toString(),
-//                    binding.switchRating.isChecked
-//                )
+                v.findNavController().navigate(EditRecordFragmentDirections.actionEditRecordFragmentToAllRecordsFragment("All")
+                )
+                editRecordViewModel.getEvent().value?.let {
+                    editRecordViewModel.updateRecord(
+                        it.eventID,
+                        binding.editTextMaintenanceTaskEditRecord.text.toString(),
+                        calendar.timeInMillis,
+                        binding.editTextServiceLifeEditRecord.text.toString(),
+                        binding.editTextMileageValueEditRecord.text.toString(),
+                        binding.editTextPriceEditRecord.text.toString(),
+                        binding.editTextServiceLifeEditRecord.text.toString(),
+                        binding.editTextCommentEditRecord.text.toString(),
+                        binding.switchRatingEditRecord.isChecked
+                    )
+                }
             }
         }
         return binding.root

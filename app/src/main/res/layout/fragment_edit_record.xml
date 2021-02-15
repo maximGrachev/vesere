@@ -67,13 +67,12 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_chainStyle="spread" />
 
-                    <EditText xmlns:android="http://schemas.android.com/apk/res/android"
+                    <EditText
                         android:id="@+id/editText_maintenanceTask_edit_record"
                         style="@style/editText_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/maintenance_task"
-                        android:theme="@style/Autocomplete"
                         app:layout_constraintBottom_toTopOf="@+id/text_date_edit_record"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -93,7 +92,7 @@
                         app:layout_constraintStart_toStartOf="@+id/editText_date_edit_record"
                         app:layout_constraintTop_toBottomOf="@+id/editText_maintenanceTask_edit_record" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editText_date_edit_record"
                         style="@style/editText_newRecordFragment"
                         android:layout_width="wrap_content"
@@ -135,6 +134,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/text_serviceLife_edit_record"
                         app:textServiceLife="@{editRecordViewModel.event}" />
 
+                    <!--                    TODO Make text_months adaptive -->
                     <TextView
                         android:id="@+id/text_months_edit_record"
                         style="@style/editText_newRecordFragment"
@@ -241,6 +241,7 @@
                     <Switch
                         android:id="@+id/switch_rating_edit_record"
                         style="@style/editText_newRecordFragment"
+                        ratingSwitchIsChecked="@{editRecordViewModel.event}"
                         android:layout_width="123dp"
                         android:layout_height="wrap_content"
                         android:text="@string/not_ok"
@@ -248,8 +249,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/text_rating_edit_record"
-                        app:layout_constraintTop_toBottomOf="@+id/text_rating_edit_record"
-                        ratingSwitchIsChecked="@{editRecordViewModel.event}"/>
+                        app:layout_constraintTop_toBottomOf="@+id/text_rating_edit_record" />
 
                     <TextView
                         android:id="@+id/text_ok_edit_record"

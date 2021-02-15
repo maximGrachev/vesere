@@ -7,13 +7,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import ru.maxgrachev.vesere.convertLongToDateString
 import ru.maxgrachev.vesere.database.allrecords.Event
 import ru.maxgrachev.vesere.database.allrecords.EventDatabaseDao
 
 class NewRecordViewModel(val database: EventDatabaseDao, application: Application) :
     AndroidViewModel(application) {
 
+    val dateNow = convertLongToDateString(System.currentTimeMillis())
+
     fun createNewRecord(maintenanceTask: String,
+                        date: Long,
                         serviceLife: String,
                         carMileage: String,
                         price: String,
@@ -50,6 +54,8 @@ class NewRecordViewModel(val database: EventDatabaseDao, application: Applicatio
             }
 
             newRecord.serviceRating = rating
+
+            newRecord.dateMilli = date
 
             insert(newRecord)
         }

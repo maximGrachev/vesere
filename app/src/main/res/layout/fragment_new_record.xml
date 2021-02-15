@@ -96,13 +96,15 @@
                         app:layout_constraintStart_toStartOf="@+id/editText_date"
                         app:layout_constraintTop_toBottomOf="@+id/editText_maintenanceTask" />
 
-                    <EditText
+                    <!--                    TODO underline TextView-->
+                    <TextView
                         android:id="@+id/editText_date"
                         style="@style/editText_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="date"
+                        android:text="@{newRecordViewModel.dateNow}"
                         app:layout_constraintBottom_toTopOf="@+id/text_serviceLife"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -136,6 +138,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/text_serviceLife" />
 
+                    <!--                    TODO Make text_months adaptive -->
                     <TextView
                         android:id="@+id/text_months"
                         style="@style/editText_newRecordFragment"
@@ -236,7 +239,7 @@
                         app:layout_constraintStart_toStartOf="@+id/text_comment"
                         app:layout_constraintTop_toBottomOf="@+id/text_serviceStation" />
 
-<!--                    TODO change color of checked switch -->
+                    <!--                    TODO change color of checked switch -->
                     <Switch
                         android:id="@+id/switch_rating"
                         style="@style/editText_newRecordFragment"

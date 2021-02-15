@@ -13,7 +13,7 @@ data class Event(
     var eventName: String = "Other",
 
     @ColumnInfo(name="date_milli")
-    val dateMilli: Long = System.currentTimeMillis(),
+    var dateMilli: Long = System.currentTimeMillis(),
 
     @ColumnInfo(name="service_life")
     var serviceLife: Int = -1,

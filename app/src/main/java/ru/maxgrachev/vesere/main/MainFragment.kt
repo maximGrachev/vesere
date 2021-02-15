@@ -1,4 +1,4 @@
-package ru.maxgrachev.vesere.title
+package ru.maxgrachev.vesere.main
 
 import android.os.Bundle
 import android.view.*
@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import ru.maxgrachev.vesere.R
-import ru.maxgrachev.vesere.databinding.FragmentTitleBinding
+import ru.maxgrachev.vesere.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
@@ -16,9 +16,9 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding: FragmentTitleBinding = DataBindingUtil.inflate(
+        val binding: FragmentMainBinding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_title,
+            R.layout.fragment_main,
             container,
             false
         )

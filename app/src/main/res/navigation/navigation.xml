@@ -41,9 +41,9 @@
         tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/titleFragment"
-        android:name="ru.maxgrachev.vesere.title.MainFragment"
+        android:name="ru.maxgrachev.vesere.main.MainFragment"
         android:label="title"
-        tools:layout="@layout/fragment_title" >
+        tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_titleFragment_to_newRecordFragment"
             app:destination="@id/newRecordFragment" />
@@ -71,5 +71,8 @@
         <argument
             android:name="eventKey"
             app:argType="long" />
+        <action
+            android:id="@+id/action_editRecordFragment_to_allRecordsFragment"
+            app:destination="@id/allRecordsFragment" />
     </fragment>
 </navigation>

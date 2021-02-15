@@ -1,19 +1,11 @@
 package ru.maxgrachev.vesere.allrecords
 
-import android.opengl.Visibility
 import android.view.View
 import android.widget.Switch
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import ru.maxgrachev.vesere.convertLongToDateString
 import ru.maxgrachev.vesere.database.allrecords.Event
-
-@BindingAdapter("textDate")
-fun TextView.setEventDataFormatted(item: Event?) {
-    item?.let {
-        text = convertLongToDateString(item.dateMilli)
-    }
-}
 
 @BindingAdapter("textEvent")
 fun TextView.setEventType(item: Event?) {
@@ -22,10 +14,21 @@ fun TextView.setEventType(item: Event?) {
     }
 }
 
+@BindingAdapter("textDate")
+fun TextView.setEventDataFormatted(item: Event?) {
+    item?.let {
+        text = convertLongToDateString(item.dateMilli)
+    }
+}
+
 @BindingAdapter("textServiceLife")
 fun TextView.setEventServiceLife(item: Event?) {
     item?.let {
-        text = item.serviceLife.toString()
+        if (item.serviceLife != -1) {
+            text = item.serviceLife.toString()
+        } else {
+            text = ""
+        }
     }
 }
 
@@ -43,7 +46,12 @@ fun TextView.setVisibilityEventServiceLife(item: Event?) {
 @BindingAdapter("textCarMileage")
 fun TextView.setEventCarMileage(item: Event?) {
     item?.let {
-        text = item.carMileage.toString()
+        if (item.carMileage !== -1) {
+            text = item.carMileage.toString()
+        } else {
+            text = ""
+        }
+
     }
 }
 
@@ -61,7 +69,11 @@ fun TextView.setVisibilityCarMileage(item: Event?) {
 @BindingAdapter("textPrice")
 fun TextView.setEventPrice(item: Event?) {
     item?.let {
-        text = item.price.toString()
+        if (item.price != -1) {
+            text = item.price.toString()
+        } else {
+            text = ""
+        }
     }
 }
 
@@ -79,7 +91,11 @@ fun TextView.setVisibilityPrice(item: Event?) {
 @BindingAdapter("textServiceStation")
 fun TextView.setEventServiceStation(item: Event?) {
     item?.let {
-        text = item.serviceStationName
+        if (item.serviceStationName.length < 2) {
+            text = ""
+        } else {
+            text = item.serviceStationName
+        }
     }
 }
 
@@ -119,7 +135,11 @@ fun TextView.setVisibilityRating(item: Event?) {
 @BindingAdapter("textComment")
 fun TextView.setEventComment(item: Event?) {
     item?.let {
-        text = item.comment
+        if (item.comment.length < 2) {
+            text = ""
+        } else {
+            text = item.comment
+        }
     }
 }
 
