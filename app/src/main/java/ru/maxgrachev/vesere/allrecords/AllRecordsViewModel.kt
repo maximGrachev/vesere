@@ -23,6 +23,10 @@ class AllRecordsViewModel(
     val navigateToEventDetail
         get() = _navigateToEventDetail
 
+    private val _navigateToEditEvent = MutableLiveData<Long>()
+    val navigateToEditEvent: LiveData<Long>
+        get() = _navigateToEditEvent
+
     init {
         records = takeEventData(arg)
     }
@@ -52,6 +56,14 @@ class AllRecordsViewModel(
 
     fun onEventDetailsNavigated() {
         _navigateToEventDetail.value = null
+    }
+
+    fun onEditEventClicked(id: Long) {
+        _navigateToEditEvent.value = id
+    }
+
+    fun onEditEventNavigated() {
+        _navigateToEditEvent.value = null
     }
 
     fun deleteEvent(event:Event){

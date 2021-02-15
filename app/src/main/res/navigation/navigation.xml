@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_allRecordsFragment_to_eventDetailsFragment"
             app:destination="@id/eventDetailsFragment" />
+        <action
+            android:id="@+id/action_allRecordsFragment_to_editRecordFragment"
+            app:destination="@id/editRecordFragment" />
     </fragment>
     <fragment
         android:id="@+id/newRecordFragment"
@@ -38,7 +41,7 @@
         tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/titleFragment"
-        android:name="ru.maxgrachev.vesere.title.TitleFragment"
+        android:name="ru.maxgrachev.vesere.title.MainFragment"
         android:label="title"
         tools:layout="@layout/fragment_title" >
         <action
@@ -56,6 +59,15 @@
         <action
             android:id="@+id/action_eventDetailsFragment_to_allRecordsFragment"
             app:destination="@id/allRecordsFragment" />
+        <argument
+            android:name="eventKey"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/editRecordFragment"
+        android:name="ru.maxgrachev.vesere.editrecord.EditRecordFragment"
+        android:label="EditRecordFragment"
+        tools:layout="@layout/fragment_edit_record">
         <argument
             android:name="eventKey"
             app:argType="long" />

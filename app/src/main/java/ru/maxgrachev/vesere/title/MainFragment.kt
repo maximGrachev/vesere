@@ -9,7 +9,7 @@ import androidx.navigation.ui.NavigationUI
 import ru.maxgrachev.vesere.R
 import ru.maxgrachev.vesere.databinding.FragmentTitleBinding
 
-class TitleFragment : Fragment() {
+class MainFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,47 +23,47 @@ class TitleFragment : Fragment() {
             false
         )
         binding.buttonCreateTitle.setOnClickListener{v:View->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToNewRecordFragment())
+            v.findNavController().navigate(MainFragmentDirections.actionTitleFragmentToNewRecordFragment())
         }
 
         binding.buttonAll.setOnClickListener{v:View ->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("All"))
+            v.findNavController().navigate(MainFragmentDirections.actionTitleFragmentToAllRecordsFragment("All"))
         }
 
         binding.buttonTransmission.setOnClickListener{v:View ->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Transmission"))
+            v.findNavController().navigate(MainFragmentDirections.actionTitleFragmentToAllRecordsFragment("Transmission"))
         }
 
         binding.buttonOil.setOnClickListener{v:View ->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Oil change"))
+            v.findNavController().navigate(MainFragmentDirections.actionTitleFragmentToAllRecordsFragment("Oil change"))
         }
 
         binding.buttonAntifreeze.setOnClickListener{v:View ->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Antifreeze change"))
+            v.findNavController().navigate(MainFragmentDirections.actionTitleFragmentToAllRecordsFragment("Antifreeze change"))
         }
 
         binding.buttonMaintenance.setOnClickListener{v:View ->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Maintenance"))
+            v.findNavController().navigate(MainFragmentDirections.actionTitleFragmentToAllRecordsFragment("Maintenance"))
         }
 
         binding.buttonDiagnostics.setOnClickListener{v:View ->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Computer diagnostics"))
+            v.findNavController().navigate(MainFragmentDirections.actionTitleFragmentToAllRecordsFragment("Computer diagnostics"))
         }
 
         binding.buttonBrake.setOnClickListener{v:View ->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Brake repair"))
+            v.findNavController().navigate(MainFragmentDirections.actionTitleFragmentToAllRecordsFragment("Brake repair"))
         }
 
         binding.buttonEngineWork.setOnClickListener{v:View ->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Engine work"))
+            v.findNavController().navigate(MainFragmentDirections.actionTitleFragmentToAllRecordsFragment("Engine work"))
         }
 
         binding.buttonElectrical.setOnClickListener{v:View ->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Electrical Systems"))
+            v.findNavController().navigate(MainFragmentDirections.actionTitleFragmentToAllRecordsFragment("Electrical Systems"))
         }
 
         binding.buttonOther.setOnClickListener{v:View ->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAllRecordsFragment("Other"))
+            v.findNavController().navigate(MainFragmentDirections.actionTitleFragmentToAllRecordsFragment("Other"))
         }
 
         setHasOptionsMenu(true)

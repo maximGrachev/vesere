@@ -2,6 +2,7 @@ package ru.maxgrachev.vesere.allrecords
 
 import android.opengl.Visibility
 import android.view.View
+import android.widget.Switch
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import ru.maxgrachev.vesere.convertLongToDateString
@@ -130,6 +131,13 @@ fun TextView.setVisibilityComment(item: Event?) {
         } else {
             View.VISIBLE
         }
+    }
+}
+
+@BindingAdapter("ratingSwitchIsChecked")
+fun Switch.setRatingSwitchToChecked(item: Event?) {
+    item?.let {
+        isChecked = item.serviceRating
     }
 }
 

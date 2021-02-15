@@ -2,16 +2,16 @@ package ru.maxgrachev.vesere.allrecords
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.maxgrachev.vesere.database.allrecords.Event
 import ru.maxgrachev.vesere.databinding.ListItemOneRecordBinding
 
 class AllRecordsAdapter(
     private val clickListener: EventListener,
-    private val deleteClickListener: DeleteClickListener) :
+    private val deleteClickListener: DeleteClickListener,
+    private val editClickListener: EditClickListener) :
     ListAdapter<Event, AllRecordsAdapter.ViewHolder>(AllRecordsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,18 +20,20 @@ class AllRecordsAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item!!, clickListener, deleteClickListener)
+        holder.bind(item!!, clickListener, deleteClickListener, editClickListener)
     }
 
     class ViewHolder private constructor(val binding: ListItemOneRecordBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val buttonEdit: Button = binding.buttonEdit
-//        val buttonDelete: Button = binding.buttonDelete
 
-        fun bind(item: Event, clickListener: EventListener,deleteClickListener: DeleteClickListener) {
+        fun bind(item: Event,
+                 clickListener: EventListener,
+                 deleteClickListener: DeleteClickListener,
+                 editClickListener: EditClickListener) {
             binding.event = item
             binding.clickListener = clickListener
             binding.deleteClickListener = deleteClickListener
+            binding.editClickListener = editClickListener
             binding.executePendingBindings()
         }
 
@@ -62,5 +64,9 @@ class EventListener(val clickListener: (eventID: Long) -> Unit) {
 
 class DeleteClickListener(val deleteClickListener: (event: Event) -> Unit) {
     fun onClick(event: Event) = deleteClickListener(event)
+}
+
+class EditClickListener(val editClickListener: (eventID: Long) -> Unit) {
+    fun onClick(event: Event) = editClickListener(event.eventID)
 }
 

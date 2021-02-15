@@ -22,6 +22,7 @@ class AllRecordsFragment : Fragment() {
     ): View? {
         val binding: FragmentAllRecordsBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_all_records, container, false)
+
         binding.buttonCreateAllRecords.setOnClickListener { v: View ->
             v.findNavController()
                 .navigate(AllRecordsFragmentDirections.actionAllRecordsFragmentToNewRecordFragment())
@@ -40,7 +41,12 @@ class AllRecordsFragment : Fragment() {
                  event: Event ->
                     allRecordsViewModel.deleteEvent(event)
 
-            })
+            },
+            EditClickListener {
+                eventId ->
+                allRecordsViewModel.onEditEventClicked(eventId)
+            }
+            )
 
         binding.listRecords.adapter = adapter
 
@@ -54,11 +60,16 @@ class AllRecordsFragment : Fragment() {
             event?.let {
                 this.findNavController()
                     .navigate(
-                        AllRecordsFragmentDirections.actionAllRecordsFragmentToEventDetailsFragment(
-                            event
-                        )
+                        AllRecordsFragmentDirections.actionAllRecordsFragmentToEventDetailsFragment(event)
                     )
                 allRecordsViewModel.onEventDetailsNavigated()
+            }
+        })
+
+        allRecordsViewModel.navigateToEditEvent.observe(viewLifecycleOwner, Observer { event ->
+            event?.let{
+                this.findNavController().navigate(AllRecordsFragmentDirections.actionAllRecordsFragmentToEditRecordFragment(it))
+                allRecordsViewModel.onEditEventNavigated()
             }
         })
 
