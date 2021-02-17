@@ -6,7 +6,7 @@
     <data>
         <variable
             name="settingViewModel"
-            type="ru.maxgrachev.vesere.setting.SettingViewModel" />
+            type="ru.maxgrachev.vesere.ui.fragments.setting.SettingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

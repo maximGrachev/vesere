@@ -3,9 +3,9 @@ package ru.maxgrachev.vesere
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import ru.maxgrachev.vesere.database.allrecords.EventDatabase
-import ru.maxgrachev.vesere.database.allrecords.Event
-import ru.maxgrachev.vesere.database.allrecords.EventDatabaseDao
+import ru.maxgrachev.vesere.data.local.database.EventDatabase
+import ru.maxgrachev.vesere.data.local.entity.Event
+import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
 import org.junit.Assert.assertEquals
 import org.junit.After
 import org.junit.Before

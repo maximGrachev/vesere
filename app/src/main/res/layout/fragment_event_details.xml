@@ -7,7 +7,7 @@
 
         <variable
             name="eventDetailsViewModel"
-            type="ru.maxgrachev.vesere.eventdetail.EventDetailsViewModel" />
+            type="ru.maxgrachev.vesere.ui.fragments.eventdetail.EventDetailsViewModel" />
 
     </data>
 

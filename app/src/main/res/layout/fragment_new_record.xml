@@ -8,7 +8,7 @@
 
         <variable
             name="newRecordViewModel"
-            type="ru.maxgrachev.vesere.newrecord.NewRecordViewModel" />
+            type="ru.maxgrachev.vesere.ui.fragments.newrecord.NewRecordViewModel" />
 
     </data>
 

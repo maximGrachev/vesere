@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/allRecordsFragment"
-        android:name="ru.maxgrachev.vesere.allrecords.AllRecordsFragment"
+        android:name="ru.maxgrachev.vesere.ui.fragments.allrecords.AllRecordsFragment"
         android:label="fragment_all_records"
         tools:layout="@layout/fragment_all_records" >
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/newRecordFragment"
-        android:name="ru.maxgrachev.vesere.newrecord.NewRecordFragment"
+        android:name="ru.maxgrachev.vesere.ui.fragments.newrecord.NewRecordFragment"
         android:label="fragment_new_record"
         tools:layout="@layout/fragment_new_record" >
         <action
@@ -36,12 +36,12 @@
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
-        android:name="ru.maxgrachev.vesere.setting.SettingFragment"
+        android:name="ru.maxgrachev.vesere.ui.fragments.setting.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/titleFragment"
-        android:name="ru.maxgrachev.vesere.main.MainFragment"
+        android:name="ru.maxgrachev.vesere.ui.fragments.main.MainFragment"
         android:label="title"
         tools:layout="@layout/fragment_main" >
         <action
@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/eventDetailsFragment"
-        android:name="ru.maxgrachev.vesere.eventdetail.EventDetailsFragment"
+        android:name="ru.maxgrachev.vesere.ui.fragments.eventdetail.EventDetailsFragment"
         android:label="EventDetailsFragment"
         tools:layout="@layout/fragment_event_details">
         <action
@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/editRecordFragment"
-        android:name="ru.maxgrachev.vesere.editrecord.EditRecordFragment"
+        android:name="ru.maxgrachev.vesere.ui.fragments.editrecord.EditRecordFragment"
         android:label="EditRecordFragment"
         tools:layout="@layout/fragment_edit_record">
         <argument

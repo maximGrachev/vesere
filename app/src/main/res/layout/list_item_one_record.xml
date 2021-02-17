@@ -7,7 +7,7 @@
 
         <variable
             name="event"
-            type="ru.maxgrachev.vesere.database.allrecords.Event" />
+            type="ru.maxgrachev.vesere.data.local.entity.Event" />
 
         <variable
             name="clickListener"

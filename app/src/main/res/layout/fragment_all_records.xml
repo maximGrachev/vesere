@@ -9,7 +9,7 @@
 
         <variable
             name="allRecordsViewModel"
-            type="ru.maxgrachev.vesere.allrecords.AllRecordsViewModel" />
+            type="ru.maxgrachev.vesere.ui.fragments.allrecords.AllRecordsViewModel" />
 
     </data>
 
