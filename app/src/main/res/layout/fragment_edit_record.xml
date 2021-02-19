@@ -97,7 +97,6 @@
                         style="@style/editText_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:inputType="date"
                         app:layout_constraintBottom_toTopOf="@+id/text_serviceLife_edit_record"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -123,7 +122,6 @@
                         style="@style/editText_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:inputType="number"
                         app:layout_constraintBottom_toTopOf="@+id/text_carMileage_edit_record"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +162,6 @@
                         style="@style/editText_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:inputType="number"
                         app:layout_constraintBottom_toTopOf="@+id/text_price_edit_record"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -190,7 +187,6 @@
                         style="@style/editText_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:inputType="number"
                         app:layout_constraintBottom_toTopOf="@+id/text_serviceStation_edit_record"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -198,6 +194,19 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/text_price_edit_record"
                         app:textPrice="@{editRecordViewModel.event}" />
+
+                    <TextView
+                        android:id="@+id/dollar_text_edit_record"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dollarSight"
+                        android:textColor="#6E9894"
+                        android:textSize="24sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/editText_price_edit_record"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/editText_price_edit_record"
+                        app:layout_constraintTop_toTopOf="@+id/editText_price_edit_record" />
 
                     <TextView
                         android:id="@+id/text_serviceStation_edit_record"
@@ -228,7 +237,6 @@
                         style="@style/editText_newRecordFragment"
                         android:layout_width="197dp"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:hint="@string/service_name"
                         android:inputType="textCapSentences"
                         app:layout_constraintBottom_toTopOf="@+id/text_comment_edit_record"
@@ -278,7 +286,6 @@
                         style="@style/editText_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:hint="@string/comment"
                         android:inputType="textCapSentences"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -287,18 +294,6 @@
                         app:layout_constraintTop_toBottomOf="@+id/text_comment_edit_record"
                         app:textComment="@{editRecordViewModel.event}" />
 
-                    <TextView
-                        android:id="@+id/dollar_text_edit_record"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/dollarSight"
-                        android:textColor="#6E9894"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/editText_price_edit_record"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/editText_price_edit_record"
-                        app:layout_constraintTop_toTopOf="@+id/editText_price_edit_record" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </ScrollView>

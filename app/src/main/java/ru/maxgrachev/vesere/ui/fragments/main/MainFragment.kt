@@ -1,9 +1,11 @@
 package ru.maxgrachev.vesere.ui.fragments.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import ru.maxgrachev.vesere.R
@@ -11,17 +13,22 @@ import ru.maxgrachev.vesere.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
+    private val viewModel: MainViewModel by lazy {
+        ViewModelProvider(this).get(MainViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
         val binding: FragmentMainBinding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_main,
-            container,
-            false
-        )
+            inflater, R.layout.fragment_main, container, false)
+
+        binding.lifecycleOwner = this
+
+        binding.textTitle.text = viewModel.response.value
+
         binding.buttonCreateTitle.setOnClickListener { v: View ->
             v.findNavController()
                 .navigate(MainFragmentDirections.actionTitleFragmentToNewRecordFragment())
