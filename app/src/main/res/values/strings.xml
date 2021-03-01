@@ -59,6 +59,7 @@
     <string name="rating_wc">Rating:</string>
     <string name="comment_wc">Comment:</string>
     <string name="edit_record">Edit record</string>
+    <string name="kilometers">km</string>
 
     <string-array name="events_array">
         <item>Oil change</item>
@@ -68,8 +69,8 @@
         <item>Brake repair</item>
         <item>Engine work</item>
         <item>Electrical Systems</item>
-        <item>Other</item>
         <item>Transmission</item>
+        <item>Other</item>
     </string-array>
 
 </resources>

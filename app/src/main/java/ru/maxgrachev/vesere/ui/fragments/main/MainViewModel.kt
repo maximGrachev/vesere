@@ -1,5 +1,6 @@
 package ru.maxgrachev.vesere.ui.fragments.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,6 +23,7 @@ class MainViewModel : ViewModel() {
         VesereApi.retrofitService.getAllCategories().enqueue(
             object: Callback<String>{
                 override fun onResponse(call: Call<String>, response: Response<String>) {
+                    Log.v("Response", response.body().toString())
                     _response.value = "Response: " + response.body()
                 }
 

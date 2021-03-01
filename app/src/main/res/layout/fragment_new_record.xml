@@ -16,288 +16,212 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+
+        <TextView
+            android:id="@+id/text_newEvent"
+            style="@style/title_text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/new_event"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView_newRecord"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.49" />
 
-            <TextView
-                android:id="@+id/text_newEvent"
-                style="@style/title_text"
+        <ScrollView
+            android:id="@+id/scrollView_newRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_newEvent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/new_event"
-                app:layout_constraintBottom_toTopOf="@+id/scrollView_newRecord"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.49" />
+                android:layout_height="wrap_content">
 
-            <ScrollView
-                android:id="@+id/scrollView_newRecord"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_newEvent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editText_maintenanceTask"
+                    style="@style/autocomplete_editText_newRecordFragment"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:hint="@string/maintenance_task"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_date"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/editText_date"
+                    app:layout_constraintTop_toBottomOf="parent">
 
-                    <TextView
-                        android:id="@+id/text_eventName"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/event"
-                        app:layout_constraintBottom_toTopOf="@+id/editText_maintenanceTask"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/editText_maintenanceTask"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_chainStyle="spread" />
+                        android:inputType="textAutoComplete|textCapSentences"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <AutoCompleteTextView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/editText_maintenanceTask"
-                        style="@style/editText_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:autofillHints="@string/maintenance_task"
-                        android:hint="@string/maintenance_task"
-                        android:inputType="textCapSentences"
-                        android:theme="@style/Autocomplete"
-                        app:layout_constraintBottom_toTopOf="@+id/text_date"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/text_date"
-                        app:layout_constraintTop_toBottomOf="@+id/text_eventName" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editText_date"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/date"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_serviceLife"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/editText_serviceLife"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_maintenanceTask">
 
-                    <TextView
-                        android:id="@+id/text_date"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/date"
-                        app:layout_constraintBottom_toTopOf="@+id/editText_date"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/editText_date"
-                        app:layout_constraintTop_toBottomOf="@+id/editText_maintenanceTask" />
-
-                    <!--                    TODO underline TextView-->
-                    <TextView
-                        android:id="@+id/editText_date"
-                        style="@style/editText_newRecordFragment"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/clicable_editText_date"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="date"
-                        android:text="@{newRecordViewModel.dateNow}"
-                        app:layout_constraintBottom_toTopOf="@+id/text_serviceLife"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/text_serviceLife"
-                        app:layout_constraintTop_toBottomOf="@+id/text_date" />
+                        android:focusableInTouchMode = "false"
+                        android:text="@{newRecordViewModel.dateNow}"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
-                        android:id="@+id/text_serviceLife"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editText_serviceLife"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/service_life"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_mileageValue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_date"
+                    app:suffixText="@string/months">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/service_life"
-                        app:layout_constraintBottom_toTopOf="@+id/editText_serviceLife"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/editText_serviceLife"
-                        app:layout_constraintTop_toBottomOf="@+id/editText_date" />
+                        android:inputType="number|numberDecimal"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <EditText
-                        android:id="@+id/editText_serviceLife"
-                        style="@style/editText_newRecordFragment"
-                        android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editText_mileageValue"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/car_mileage"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_serviceLife"
+                    app:suffixText="@string/kilometers">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
-                        app:layout_constraintBottom_toTopOf="@+id/text_carMileage"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/text_months"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintHorizontal_chainStyle="spread"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_serviceLife" />
+                        android:inputType="number|numberDecimal"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <!--                    TODO Make text_months adaptive -->
-                    <TextView
-                        android:id="@+id/text_months"
-                        style="@style/editText_newRecordFragment"
-                        android:layout_width="0dp"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editText_price"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/price"
+                    app:layout_constraintBottom_toTopOf="@+id/editTextText_serviceName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_mileageValue"
+                    app:prefixText="$">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/months"
-                        app:layout_constraintBottom_toBottomOf="@+id/editText_serviceLife"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/editText_serviceLife"
-                        app:layout_constraintTop_toTopOf="@+id/editText_serviceLife" />
+                        android:inputType="number|numberDecimal"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
-                        android:id="@+id/text_carMileage"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editTextText_serviceName"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/service_name"
+                    app:layout_constraintBottom_toTopOf="@+id/text_rating"
+                    app:layout_constraintEnd_toStartOf="@+id/text_rating"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/editText_price"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_price">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/car_mileage"
-                        app:layout_constraintBottom_toTopOf="@+id/editText_mileageValue"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editText_serviceLife" />
+                        android:inputType="textCapSentences"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <EditText
-                        android:id="@+id/editText_mileageValue"
-                        style="@style/editText_newRecordFragment"
-                        android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/text_rating"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rating"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_comment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextText_serviceName" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_rating"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="130dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:checked="false"
+                    android:text="@string/not_ok"
+                    app:layout_constraintBottom_toBottomOf="@+id/editTextText_serviceName"
+                    app:layout_constraintStart_toEndOf="@+id/text_rating"
+                    app:layout_constraintTop_toBottomOf="@+id/text_rating" />
+
+                <TextView
+                    android:id="@+id/text_ok"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="@android:string/ok"
+                    app:layout_constraintBottom_toBottomOf="@+id/switch_rating"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/switch_rating"
+                    app:layout_constraintTop_toTopOf="@+id/switch_rating" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editText_comment"
+                    style="@style/editText_newRecordFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/comment"
+                    android:inputType="textMultiLine"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_rating">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
-                        app:layout_constraintBottom_toTopOf="@+id/text_price"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_carMileage" />
+                        android:inputType="textMultiLine|textCapSentences"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
-                        android:id="@+id/text_price"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/price"
-                        app:layout_constraintBottom_toTopOf="@+id/editText_price"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editText_mileageValue" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <EditText
-                        android:id="@+id/editText_price"
-                        style="@style/editText_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        app:layout_constraintBottom_toTopOf="@+id/text_serviceStation"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_price" />
-
-                    <TextView
-                        android:id="@+id/dollar_text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/dollarSight"
-                        android:textColor="#6E9894"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/editText_price"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/editText_price"
-                        app:layout_constraintTop_toTopOf="@+id/editText_price" />
-
-                    <TextView
-                        android:id="@+id/text_serviceStation"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="196dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/service_station"
-                        app:layout_constraintBottom_toTopOf="@+id/editTextText_serviceName"
-                        app:layout_constraintEnd_toStartOf="@+id/text_rating"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/text_price"
-                        app:layout_constraintTop_toBottomOf="@+id/editText_price" />
-
-
-                    <TextView
-                        android:id="@+id/text_rating"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="196dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/rating"
-                        app:layout_constraintBottom_toBottomOf="@+id/text_serviceStation"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/editTextText_serviceName"
-                        app:layout_constraintTop_toTopOf="@+id/text_serviceStation" />
-
-                    <EditText
-                        android:id="@+id/editTextText_serviceName"
-                        style="@style/editText_newRecordFragment"
-                        android:layout_width="197dp"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/service_name"
-                        android:inputType="textCapSentences"
-                        app:layout_constraintBottom_toTopOf="@+id/text_comment"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/text_comment"
-                        app:layout_constraintTop_toBottomOf="@+id/text_serviceStation" />
-
-                    <!--                    TODO change color of checked switch -->
-                    <Switch
-                        android:id="@+id/switch_rating"
-                        style="@style/editText_newRecordFragment"
-                        android:layout_width="123dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/not_ok"
-                        app:layout_constraintBottom_toBottomOf="@+id/editTextText_serviceName"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/text_rating"
-                        app:layout_constraintTop_toBottomOf="@+id/text_rating" />
-
-                    <TextView
-                        android:id="@+id/text_ok"
-                        style="@style/editText_newRecordFragment"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:text="@android:string/ok"
-                        app:layout_constraintBottom_toBottomOf="@+id/switch_rating"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/switch_rating"
-                        app:layout_constraintTop_toTopOf="@+id/switch_rating" />
-
-                    <TextView
-                        android:id="@+id/text_comment"
-                        style="@style/text_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/comment"
-                        app:layout_constraintBottom_toTopOf="@+id/editText_comment"
-                        app:layout_constraintStart_toStartOf="@+id/editText_comment"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextText_serviceName" />
-
-                    <EditText
-                        android:id="@+id/editText_comment"
-                        style="@style/editText_newRecordFragment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/comment"
-                        android:inputType="textCapSentences"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_comment" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </ScrollView>
-        </LinearLayout>
+        </ScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/button_create_newRec"
