@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!--?xml version="1.0" encoding="UTF-8"?-->
 <resources>
-    <color name="primaryColor">#2a847a</color>
-    <color name="primaryLightColor">#5fb4a9</color>
-    <color name="primaryDarkColor">#00574e</color>
-    <color name="secondaryColor">#b6e5e0</color>
-    <color name="secondaryLightColor">#e9ffff</color>
-    <color name="secondaryDarkColor">#85b3ae</color>
-    <color name="primaryTextColor">#ffffff</color>
-    <color name="secondaryTextColor">#000000</color>
+  <color name="primaryColor">#3e2723</color>
+  <color name="primaryLightColor">#6a4f4b</color>
+  <color name="primaryDarkColor">#1b0000</color>
+  <color name="secondaryColor">#ffc885</color>
+  <color name="secondaryLightColor">#fffbb5</color>
+  <color name="secondaryDarkColor">#ca9757</color>
+  <color name="primaryTextColor">#ffaa00</color>
+  <color name="secondaryTextColor">#aa2c12</color>
 
-    <!--addition colors-->
-    <color name="underline">#6E9894</color>
-    <color name="autocompletet_background_color">#FFFFFF</color>
-    <color name="light_red">#EF9A9A</color>
+  <color name="underline">#6E9894</color>
+  <color name="autocompletet_background_color">#FFFFFF</color>
+  <color name="light_red">#EF9A9A</color>
 </resources>

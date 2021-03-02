@@ -21,7 +21,7 @@
     <string name="service_life">Service Life</string>
     <string name="car_mileage">Car mileage</string>
     <string name="months">months</string>
-    <string name="rating">Rating</string>
+    <string name="rating">Service\'s rating</string>
     <string name="not_ok">Not Ok</string>
     <string name="ok">Ok</string>
     <string name="events">Events</string>

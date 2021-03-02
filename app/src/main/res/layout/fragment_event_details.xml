@@ -191,12 +191,12 @@
 
                     <TextView
                         android:id="@+id/textView2"
+                        style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:text="@string/dollarSight"
-                        android:textColor="#6E9894"
                         android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="@+id/text_price_details"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -247,7 +247,7 @@
 
                     <TextView
                         android:id="@+id/rating_value_details"
-                        style="@style/editText_newRecordFragment"
+                        style="@style/text_newRecordFragment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"

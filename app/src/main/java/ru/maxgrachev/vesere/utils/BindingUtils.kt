@@ -1,9 +1,11 @@
 package ru.maxgrachev.vesere.utils
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Switch
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.google.android.material.switchmaterial.SwitchMaterial
 import ru.maxgrachev.vesere.data.local.entity.Event
 
 @BindingAdapter("textEvent")
@@ -154,7 +156,7 @@ fun TextView.setVisibilityComment(item: Event?) {
 }
 
 @BindingAdapter("ratingSwitchIsChecked")
-fun Switch.setRatingSwitchToChecked(item: Event?) {
+fun SwitchMaterial.setRatingSwitchToChecked(item: Event?) {
     item?.let {
         isChecked = item.serviceRating
     }

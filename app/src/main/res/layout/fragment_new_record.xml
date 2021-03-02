@@ -49,35 +49,17 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/editText_maintenanceTask"
-                    style="@style/autocomplete_editText_newRecordFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/maintenance_task"
-                    app:layout_constraintBottom_toTopOf="@+id/editText_date"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/editText_date"
-                    app:layout_constraintTop_toBottomOf="parent">
-
-                    <AutoCompleteTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textAutoComplete|textCapSentences"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/editText_date"
                     style="@style/editText_newRecordFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/date"
                     app:endIconMode="clear_text"
-                    app:layout_constraintBottom_toTopOf="@+id/editText_serviceLife"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_maintenanceTask"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/editText_serviceLife"
-                    app:layout_constraintTop_toBottomOf="@+id/editText_maintenanceTask">
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/clicable_editText_date"
@@ -88,6 +70,23 @@
                         android:text="@{newRecordViewModel.dateNow}"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editText_maintenanceTask"
+                    style="@style/autocomplete_editText_newRecordFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/maintenance_task"
+                    app:layout_constraintBottom_toTopOf="@+id/editText_serviceLife"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_date">
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textAutoComplete|textCapSentences"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/editText_serviceLife"
@@ -101,7 +100,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_chainStyle="spread"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editText_date"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_maintenanceTask"
                     app:suffixText="@string/months">
 
                     <com.google.android.material.textfield.TextInputEditText

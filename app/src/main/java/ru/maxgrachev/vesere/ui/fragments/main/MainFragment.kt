@@ -27,8 +27,6 @@ class MainFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        binding.textTitle.text = viewModel.response.value
-
         binding.buttonCreateTitle.setOnClickListener { v: View ->
             v.findNavController()
                 .navigate(MainFragmentDirections.actionTitleFragmentToNewRecordFragment())
