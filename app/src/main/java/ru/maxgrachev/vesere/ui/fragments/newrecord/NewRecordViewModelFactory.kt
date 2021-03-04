@@ -3,10 +3,10 @@ package ru.maxgrachev.vesere.ui.fragments.newrecord
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
+import ru.maxgrachev.vesere.data.local.dao.ParameterDao
 
 class NewRecordViewModelFactory(
-    private val dataSource: EventDatabaseDao,
+    private val dataSource: ParameterDao,
     private val application: Application
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")

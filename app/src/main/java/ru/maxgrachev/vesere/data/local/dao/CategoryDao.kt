@@ -7,7 +7,10 @@ import ru.maxgrachev.vesere.data.local.entity.Category
 @Dao
 interface CategoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAllCategory(category:List<Category>)
+    fun insertAllCategory(categoryList:List<Category>)
+
+    @Insert
+    fun InsertCategory(category: Category)
 
     @Query("SELECT * FROM category ORDER BY id DESC")
     fun getAllCategory(): LiveData<List<Category>>

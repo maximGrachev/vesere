@@ -17,6 +17,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import kotlinx.android.synthetic.main.fragment_new_record.*
 import kotlinx.android.synthetic.main.fragment_new_record.view.*
 import ru.maxgrachev.vesere.R
+import ru.maxgrachev.vesere.data.local.database.AppRoomDatabase
 import ru.maxgrachev.vesere.data.local.database.EventDatabase
 import ru.maxgrachev.vesere.databinding.FragmentNewRecordBinding
 import ru.maxgrachev.vesere.utils.convertLongToDateString
@@ -33,7 +34,7 @@ class NewRecordFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_new_record, container, false)
 
         val application = requireNotNull(this.activity).application
-        val dataSource = EventDatabase.getInstance(application).eventDatabaseDao
+        val dataSource = AppRoomDatabase.getDatabase(application).parameterDao()
         val viewModelFactory = NewRecordViewModelFactory(dataSource, application)
         val newRecordViewModel =
             ViewModelProvider(this, viewModelFactory).get(NewRecordViewModel::class.java)

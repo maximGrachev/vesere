@@ -4,14 +4,16 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
-import ru.maxgrachev.vesere.data.local.entity.Event
+import ru.maxgrachev.vesere.data.local.dao.ParameterDao
+import ru.maxgrachev.vesere.data.local.entity.Parameter
+import ru.maxgrachev.vesere.utils.MaintenanceTask
 import ru.maxgrachev.vesere.utils.convertLongToDateString
 
-class NewRecordViewModel(val database: EventDatabaseDao, application: Application) :
+class NewRecordViewModel(val database: ParameterDao, application: Application) :
     AndroidViewModel(application) {
 
     val dateNow = convertLongToDateString(System.currentTimeMillis())
+
 
     fun createNewRecord(
         maintenanceTask: String,
@@ -23,43 +25,46 @@ class NewRecordViewModel(val database: EventDatabaseDao, application: Applicatio
         comment: String,
         rating: Boolean
     ) {
+        var categoryId: Int = 1 //TODO chose categoryId using maintenanceTask value
+        var parameterList = mutableListOf<Parameter>()
+
         viewModelScope.launch {
-            val newRecord = Event()
+
 
             if (maintenanceTask.isNotEmpty()) {
-                newRecord.eventName = maintenanceTask
+                parameterList.add(0, Parameter(name = "Maintenance task", value = maintenanceTask, categoryId=categoryId))
             }
 
             if (serviceLife.isNotEmpty()) {
-                newRecord.serviceLife = serviceLife.toInt()
+                parameterList.add(1, Parameter(name = "Service Life", value = serviceLife, categoryId=categoryId))
             }
 
             if (carMileage.isNotEmpty()) {
-                newRecord.carMileage = carMileage.toInt()
+                parameterList.add(2, Parameter(name = "Car Mileage", value = carMileage, categoryId=categoryId))
             }
 
             if (price.isNotEmpty()) {
-                newRecord.price = price.toInt()
+                parameterList.add(3, Parameter(name = "Price", value = price, categoryId=categoryId))
             }
 
             if (serviceName.isNotEmpty()) {
-                newRecord.serviceStationName = serviceName
+                parameterList.add(4, Parameter(name = "Service Station Name", value = "serviceName", categoryId=categoryId))
             }
 
             if (comment.isNotEmpty()) {
-                newRecord.comment = comment
+                parameterList.add(5, Parameter(name = "Comment", value = "comment", categoryId=categoryId))
             }
 
-            newRecord.serviceRating = rating
+//            newRecord.serviceRating = rating
+//
+//            newRecord.dateMilli = date
 
-            newRecord.dateMilli = date
-
-            insert(newRecord)
+            insert(parameterList)
         }
     }
 
-    private suspend fun insert(record: Event) {
-        database.insert(record)
+    private suspend fun insert(parameterList: List<Parameter>) {
+        database.insertAllParameter(parameterList)
     }
 
 

@@ -8,7 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import kotlinx.coroutines.Dispatchers
+import okhttp3.Dispatcher
 import ru.maxgrachev.vesere.R
+import ru.maxgrachev.vesere.data.local.database.AppRoomDatabase
+import ru.maxgrachev.vesere.data.local.entity.Category
 import ru.maxgrachev.vesere.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -24,6 +28,7 @@ class MainFragment : Fragment() {
 
         val binding: FragmentMainBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_main, container, false)
+
 
         binding.lifecycleOwner = this
 

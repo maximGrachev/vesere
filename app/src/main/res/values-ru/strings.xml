@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">Vesere</string>
+    <string name="title_chooseACategory">Выберите категорию</string>
+    <string name="oil_changing">Замена масла</string>
+    <string name="antifreeze_changing">Замена антифриза</string>
+    <string name="maintenance">Технический осмотр</string>
+    <string name="computer_diagnostics">Компьютерная диагностика</string>
+    <string name="brake_repair">Ремонт тормозов</string>
+    <string name="weel_balance">Балансировка колес</string>
+    <string name="engine_work">Ремонт двигателя</string>
+    <string name="other">Другое</string>
+    <string name="electrical_systems">Электрические работы</string>
+    <string name="new_event">Новая запись</string>
+    <string name="event">Запись</string>
+    <string name="price">Стоимость</string>
+    <string name="comment">Комментарий</string>
+    <string name="service_station">Автосервис</string>
+    <string name="service_name">Автосервис</string>
+    <string name="maintenance_task">Наименование работы</string>
+    <string name="date">Дата</string>
+    <string name="service_life">Срок службы</string>
+    <string name="car_mileage">Пробег автомобиля</string>
+    <string name="months">месяцев</string>
+    <string name="rating">Оценка автосервиса</string>
+    <string name="not_ok">Плохо</string>
+    <string name="ok">Хорошо</string>
+    <string name="events">Записи</string>
+    <string name="event1_text">Замена масла \nДата: 08.09.2019 \nСрок службы: 1 год \nПробег автомобиля: 123 876 км \nКомментарий: -</string>
+    <string name="event2_text">Компьютерная диагностика \nДата: 12.03.2020 \nСрок службы: - \nПробег автомобиля: 124 320 км \nКомментарий: New diagnostics in 1 month \nService station: Rob&amp;Bob \nService"'"s Rating: Ok\nPrice: $12</string>
+    <string name="edit">Редактировать</string>
+    <string name="delete">Удалить</string>
+    <string name="plus">+</string>
+    <string name="add">Добавить</string>
+    <string name="settings">Настройки</string>
+    <string name="enter_maintenance_task">Пожалуйста, введите наименование работы</string>
+    <string name="save">Сохранить</string>
+    <string name="save_button">Кнопка сохранить</string>
+
+    <!-- Output to TextView styled with HTML -->
+    <string name="date_AE"><![CDATA[<b>Дата: </b>]]></string>
+    <string name="serviceLive_AE"><![CDATA[<b>Срок службы: </b>]]></string>
+    <string name="months_AE"><![CDATA[месяцев]]></string>
+    <string name="carMileage_AE"><![CDATA[<b>Пробег автомобиля: </b>]]></string>
+    <string name="comment_AE"><![CDATA[<b>Комментарий: </b>]]></string>
+    <string name="price_AE"><![CDATA[<b>Стоимость: </b>$]]></string>
+    <string name="serviceStation_AE"><![CDATA[<b>Автоцентр: </b>]]></string>
+    <string name="transmission">Трансмиссия</string>
+    <string name="all">Все</string>
+    <string name="dollarSight">₽</string>
+    <string name="clear_all">Удалить все</string>
+    <string name="close">закрыть</string>
+    <string name="delete_all_records">Удалить все записи</string>
+    <string name="service_station_wc">Автосервис:</string>
+    <string name="date_wc">Дата:</string>
+    <string name="service_life_wc">Срок службы:</string>
+    <string name="car_mileage_wc">Пробег автомобиля:</string>
+    <string name="price_wc">Стоимость:</string>
+    <string name="rating_wc">Оценка сервиса:</string>
+    <string name="comment_wc">Комментарий:</string>
+    <string name="edit_record">Радактировать запись</string>
+    <string name="kilometers">км</string>
+
+    <string-array name="events_array">
+        <item>Замена масла</item>
+        <item>Замена антифриза</item>
+        <item>Технический осмотр</item>
+        <item>Компьютерная диагностика</item>
+        <item>Ремонт тормозов</item>
+        <item>Ремонт двигателя</item>
+        <item>Электрические работы</item>
+        <item>Трансмиссия</item>
+        <item>Другое</item>
+    </string-array>
+
+</resources>
