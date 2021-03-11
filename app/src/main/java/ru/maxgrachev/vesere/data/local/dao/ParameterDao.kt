@@ -7,12 +7,21 @@ import ru.maxgrachev.vesere.data.local.entity.Parameter
 
 @Dao
 interface ParameterDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAllParameter(parameterList :List<Parameter>)
+    @Insert
+    suspend fun insert(parameter: Parameter)
 
     @Insert
-    fun insertParameter(parameter: Parameter)
+    fun insertAll(vararg parameters: Parameter)
 
-    @Query("SELECT * FROM parameter ORDER BY id DESC")
-    fun getAllParameter(): LiveData<List<Parameter>>
+    @Query("DELETE FROM parameter")
+    fun deleteAll()
+
+    @Delete
+    fun deleteParameter(parameter: Parameter)
+
+    @get:Query("SELECT * from parameter ORDER BY name ASC")
+    val getAllParameter: LiveData<List<Parameter>>
+
+//    @Query("SELECT * from word_table ORDER BY word ASC")
+//    fun getAllWords(): LiveData<List<Category?>?>?
 }

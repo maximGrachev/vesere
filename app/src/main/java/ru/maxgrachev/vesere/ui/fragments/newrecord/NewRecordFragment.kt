@@ -34,7 +34,7 @@ class NewRecordFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_new_record, container, false)
 
         val application = requireNotNull(this.activity).application
-        val dataSource = AppRoomDatabase.getDatabase(application).parameterDao()
+        val dataSource = AppRoomDatabase.getInstance(application).parameterDao
         val viewModelFactory = NewRecordViewModelFactory(dataSource, application)
         val newRecordViewModel =
             ViewModelProvider(this, viewModelFactory).get(NewRecordViewModel::class.java)
