@@ -2,11 +2,12 @@ package ru.maxgrachev.vesere.ui.fragments.editrecord
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import ru.maxgrachev.vesere.data.local.dao.CategoryDao
 import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
 
 class EditRecordViewModelFactory(
-    private val eventKey: Long,
-    private val dataSource: EventDatabaseDao
+    private val eventKey: Int,
+    private val dataSource: CategoryDao
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

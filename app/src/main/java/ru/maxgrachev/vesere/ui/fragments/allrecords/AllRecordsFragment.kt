@@ -10,13 +10,17 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.withContext
 import ru.maxgrachev.vesere.R
 import ru.maxgrachev.vesere.allrecords.AllRecordsAdapter
 import ru.maxgrachev.vesere.allrecords.DeleteClickListener
 import ru.maxgrachev.vesere.allrecords.EditClickListener
 import ru.maxgrachev.vesere.allrecords.EventListener
-import ru.maxgrachev.vesere.data.local.database.EventDatabase
-import ru.maxgrachev.vesere.data.local.entity.Event
+import ru.maxgrachev.vesere.data.local.database.AppRoomDatabase
+import ru.maxgrachev.vesere.data.local.entity.Category
 import ru.maxgrachev.vesere.databinding.FragmentAllRecordsBinding
 
 class AllRecordsFragment : Fragment() {
@@ -34,7 +38,8 @@ class AllRecordsFragment : Fragment() {
 
         val args = AllRecordsFragmentArgs.fromBundle(requireArguments())
         val application = requireNotNull(this.activity).application
-        val dataSource = EventDatabase.getInstance(application).eventDatabaseDao
+        val scope  = CoroutineScope(SupervisorJob())
+        val dataSource = AppRoomDatabase.getInstance(application,scope).categoryDao
         val viewModelFactory = AllRecordsViewModelFactory(dataSource, application, args)
         val allRecordsViewModel =
             ViewModelProvider(this, viewModelFactory).get(AllRecordsViewModel::class.java)
@@ -42,7 +47,7 @@ class AllRecordsFragment : Fragment() {
             EventListener { eventID ->
                 allRecordsViewModel.onEventClicked(eventID)
             },
-            DeleteClickListener { event: Event ->
+            DeleteClickListener { event: Category ->
                 allRecordsViewModel.deleteEvent(event)
 
             },

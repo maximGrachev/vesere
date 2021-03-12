@@ -3,12 +3,13 @@ package ru.maxgrachev.vesere.ui.fragments.allrecords
 import android.app.Application
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
-import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
+import ru.maxgrachev.vesere.data.local.dao.CategoryDao
+import ru.maxgrachev.vesere.data.local.entity.Category
 import ru.maxgrachev.vesere.data.local.entity.Event
 import ru.maxgrachev.vesere.utils.formatEvents
 
 class AllRecordsViewModel(
-    val database: EventDatabaseDao,
+    val database: CategoryDao,
     application: Application,
     arguments: AllRecordsFragmentArgs
 ) :
@@ -16,15 +17,15 @@ class AllRecordsViewModel(
         Application()
     ) {
 
-    var records: LiveData<List<Event>>
+    var records: LiveData<List<Category>>
     private var arg: String = arguments.eventTypeKeyWord
 
-    private val _navigateToEventDetail = MutableLiveData<Long>()
+    private val _navigateToEventDetail = MutableLiveData<Int>()
     val navigateToEventDetail
         get() = _navigateToEventDetail
 
-    private val _navigateToEditEvent = MutableLiveData<Long>()
-    val navigateToEditEvent: LiveData<Long>
+    private val _navigateToEditEvent = MutableLiveData<Int>()
+    val navigateToEditEvent: LiveData<Int>
         get() = _navigateToEditEvent
 
     init {
@@ -35,22 +36,23 @@ class AllRecordsViewModel(
         formatEvents(records, application.resources)
     }
 
-    private fun takeEventData(arg: String): LiveData<List<Event>> {
-        return when (arg) {
-            "Oil change" -> database.getAllOilChange()
-            "Antifreeze change" -> database.getAllAntifreezeChange()
-            "Maintenance" -> database.getAllMaintenance()
-            "Computer diagnostics" -> database.getAllComputerDiagnostics()
-            "Brake repair" -> database.getAllBreakRepair()
-            "Engine work" -> database.getAllEngineWork()
-            "Electrical Systems" -> database.getAllElectricalSystems()
-            "All" -> database.getAllEvents()
-            "Transmission" -> database.getAllTransmission()
-            else -> database.getAllOther()
-        }
+    private fun takeEventData(arg: String): LiveData<List<Category>> {
+//        return when (arg) {
+//            "Oil change" -> database.getAllOilChange()
+//            "Antifreeze change" -> database.getAllAntifreezeChange()
+//            "Maintenance" -> database.getAllMaintenance()
+//            "Computer diagnostics" -> database.getAllComputerDiagnostics()
+//            "Brake repair" -> database.getAllBreakRepair()
+//            "Engine work" -> database.getAllEngineWork()
+//            "Electrical Systems" -> database.getAllElectricalSystems()
+//            "All" -> database.getAllEvents()
+//            "Transmission" -> database.getAllTransmission()
+//            else -> database.getAllOther()
+//        }
+        return  database.allCategories
     }
 
-    fun onEventClicked(id: Long) {
+    fun onEventClicked(id: Int) {
         _navigateToEventDetail.value = id
     }
 
@@ -58,7 +60,7 @@ class AllRecordsViewModel(
         _navigateToEventDetail.value = null
     }
 
-    fun onEditEventClicked(id: Long) {
+    fun onEditEventClicked(id: Int) {
         _navigateToEditEvent.value = id
     }
 
@@ -66,9 +68,9 @@ class AllRecordsViewModel(
         _navigateToEditEvent.value = null
     }
 
-    fun deleteEvent(event: Event) {
+    fun deleteEvent(event: Category) {
         viewModelScope.launch {
-            database.delete(event)
+//            database.delete(event)
         }
     }
 }

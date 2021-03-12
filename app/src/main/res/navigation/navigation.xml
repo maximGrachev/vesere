@@ -61,7 +61,7 @@
             app:destination="@id/allRecordsFragment" />
         <argument
             android:name="eventKey"
-            app:argType="long" />
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/editRecordFragment"
@@ -70,7 +70,7 @@
         tools:layout="@layout/fragment_edit_record">
         <argument
             android:name="eventKey"
-            app:argType="long" />
+            app:argType="integer" />
         <action
             android:id="@+id/action_editRecordFragment_to_allRecordsFragment"
             app:destination="@id/allRecordsFragment" />

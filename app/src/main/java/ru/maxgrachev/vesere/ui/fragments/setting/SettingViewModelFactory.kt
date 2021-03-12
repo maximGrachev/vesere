@@ -3,10 +3,11 @@ package ru.maxgrachev.vesere.ui.fragments.setting
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import ru.maxgrachev.vesere.data.local.dao.CategoryDao
 import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
 
 class SettingViewModelFactory(
-    private val dataSource: EventDatabaseDao,
+    private val dataSource: CategoryDao,
     private val application: Application
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")

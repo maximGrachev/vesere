@@ -6,30 +6,31 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.google.android.material.switchmaterial.SwitchMaterial
+import ru.maxgrachev.vesere.data.local.entity.Category
 import ru.maxgrachev.vesere.data.local.entity.Event
 
 @BindingAdapter("textEvent")
-fun TextView.setEventType(item: Event?) {
+fun TextView.setEventType(item: Category?) {
     item?.let {
-        text = item.eventName
+        text = item.name
     }
 }
 
 @BindingAdapter("textDate")
-fun TextView.setEventDataFormatted(item: Event?) {
+fun TextView.setEventDataFormatted(item: Category?) {
     item?.let {
-        text = convertLongToDateString(item.dateMilli)
+//        text = convertLongToDateString(item.id)
     }
 }
 
 @BindingAdapter("textServiceLife")
-fun TextView.setEventServiceLife(item: Event?) {
+fun TextView.setEventServiceLife(item: Category?) {
     item?.let {
-        if (item.serviceLife != -1) {
-            text = item.serviceLife.toString()
-        } else {
-            text = ""
-        }
+//        if (item.serviceLife != -1) {
+//            text = item.serviceLife.toString()
+//        } else {
+//            text = ""
+//        }
     }
 }
 

@@ -4,12 +4,13 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import ru.maxgrachev.vesere.data.local.dao.CategoryDao
 import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
 import ru.maxgrachev.vesere.data.local.entity.Event
 
 class EditRecordViewModel(
-    eventKey: Long,
-    dataSource: EventDatabaseDao
+    eventKey: Int,
+    dataSource: CategoryDao
 ) : ViewModel() {
 
     val database = dataSource
@@ -18,7 +19,7 @@ class EditRecordViewModel(
     fun getEvent() = event
 
     init {
-        event.addSource(database.getEventWithId(eventKey), event::setValue)
+//        event.addSource(database.getEventWithId(eventKey), event::setValue)
     }
 
     fun updateRecord(
@@ -68,7 +69,7 @@ class EditRecordViewModel(
     }
 
     private suspend fun update(record: Event) {
-        database.update(record)
+//        database.update(record)
     }
 }
 

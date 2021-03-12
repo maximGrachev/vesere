@@ -8,9 +8,10 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import ru.maxgrachev.vesere.data.local.dao.CategoryDao
 import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
 
-class SettingViewModel(val database: EventDatabaseDao, application: Application) :
+class SettingViewModel(val database: CategoryDao, application: Application) :
     AndroidViewModel(application) {
 
     private val _allRecordsDeleted = MutableLiveData<Boolean>()
@@ -34,7 +35,7 @@ class SettingViewModel(val database: EventDatabaseDao, application: Application)
 
     private suspend fun clear() {
         withContext(Dispatchers.IO) {
-            database.clear()
+//            database.clear()
         }
     }
 }

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ru.maxgrachev.vesere.data.local.entity.Event
+import ru.maxgrachev.vesere.data.local.entity.Category
 import ru.maxgrachev.vesere.databinding.ListItemOneRecordBinding
 
 class AllRecordsAdapter(
@@ -13,7 +13,7 @@ class AllRecordsAdapter(
     private val deleteClickListener: DeleteClickListener,
     private val editClickListener: EditClickListener
 ) :
-    ListAdapter<Event, AllRecordsAdapter.ViewHolder>(AllRecordsDiffCallback()) {
+    ListAdapter<Category, AllRecordsAdapter.ViewHolder>(AllRecordsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -28,7 +28,7 @@ class AllRecordsAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-            item: Event,
+            item: Category,
             clickListener: EventListener,
             deleteClickListener: DeleteClickListener,
             editClickListener: EditClickListener
@@ -50,26 +50,26 @@ class AllRecordsAdapter(
     }
 }
 
-class AllRecordsDiffCallback : DiffUtil.ItemCallback<Event>() {
-    override fun areItemsTheSame(oldItem: Event, newItem: Event): Boolean {
-        return oldItem.eventID == newItem.eventID
+class AllRecordsDiffCallback : DiffUtil.ItemCallback<Category>() {
+    override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
+        return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: Event, newItem: Event): Boolean {
+    override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {
         return oldItem == newItem
     }
 
 }
 
-class EventListener(val clickListener: (eventID: Long) -> Unit) {
-    fun onClick(event: Event) = clickListener(event.eventID)
+class EventListener(val clickListener: (id: Int) -> Unit) {
+    fun onClick(event: Category) = clickListener(event.id!!)
 }
 
-class DeleteClickListener(val deleteClickListener: (event: Event) -> Unit) {
-    fun onClick(event: Event) = deleteClickListener(event)
+class DeleteClickListener(val deleteClickListener: (event: Category) -> Unit) {
+    fun onClick(event: Category) = deleteClickListener(event)
 }
 
-class EditClickListener(val editClickListener: (eventID: Long) -> Unit) {
-    fun onClick(event: Event) = editClickListener(event.eventID)
+class EditClickListener(val editClickListener: (id: Int) -> Unit) {
+    fun onClick(event: Category) = editClickListener(event.id!!)
 }
 

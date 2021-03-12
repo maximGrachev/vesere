@@ -9,8 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import ru.maxgrachev.vesere.R
-import ru.maxgrachev.vesere.data.local.database.EventDatabase
+import ru.maxgrachev.vesere.data.local.database.AppRoomDatabase
 import ru.maxgrachev.vesere.databinding.FragmentEventDetailsBinding
 
 class EventDetailsFragment : Fragment() {
@@ -24,8 +26,8 @@ class EventDetailsFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
         val arguments = EventDetailsFragmentArgs.fromBundle(requireArguments())
-
-        val dataSource = EventDatabase.getInstance(application).eventDatabaseDao
+        val scope  = CoroutineScope(SupervisorJob())
+        val dataSource = AppRoomDatabase.getInstance(application, scope).categoryDao
         val eventDetailsModelFactory = EventDetailsViewModelFactory(arguments.eventKey, dataSource)
 
         val eventDetailsViewModel = ViewModelProvider(

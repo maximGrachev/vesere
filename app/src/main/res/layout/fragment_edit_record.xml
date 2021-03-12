@@ -63,8 +63,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="date"
-                        android:focusableInTouchMode = "false"
-                        app:textDate="@{editRecordViewModel.event}"/>
+                        android:focusableInTouchMode = "false"/>
+
+<!--                    app:textDate="@{editRecordViewModel.event}"-->
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -83,7 +84,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textAutoComplete|textCapSentences"
-                        app:textEvent="@{editRecordViewModel.event}"/>
+                        />
+<!--                    app:textEvent="@{editRecordViewModel.event}"-->
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -104,8 +106,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number|numberDecimal"
-                        app:textServiceLife="@{editRecordViewModel.event}"/>
+                        android:inputType="number|numberDecimal"/>
+<!--                    app:textServiceLife="@{editRecordViewModel.event}"-->
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout

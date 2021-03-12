@@ -4,12 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
+import ru.maxgrachev.vesere.data.local.dao.CategoryDao
 import ru.maxgrachev.vesere.data.local.entity.Event
 
 class EventDetailsViewModel(
-    private val eventKey: Long = 0L,
-    dataSource: EventDatabaseDao
+    private val eventKey: Int = 1,
+    dataSource: CategoryDao
 ) : ViewModel() {
 
     val database = dataSource
@@ -18,7 +18,7 @@ class EventDetailsViewModel(
     fun getEvent() = event
 
     init {
-        event.addSource(database.getEventWithId(eventKey), event::setValue)
+//        event.addSource(database.getEventWithId(eventKey), event::setValue)
     }
 
     private val _navigateToAllRecords = MutableLiveData<Boolean?>()
@@ -34,7 +34,8 @@ class EventDetailsViewModel(
     }
 
     fun giveEventType(): String? {
-        return database.getEventWithId(eventKey).value?.eventName
+//        return database.getEventWithId(eventKey).value?.eventName
+        return null
     }
 
 }

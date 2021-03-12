@@ -10,8 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import ru.maxgrachev.vesere.R
-import ru.maxgrachev.vesere.data.local.database.EventDatabase
+import ru.maxgrachev.vesere.data.local.database.AppRoomDatabase
 import ru.maxgrachev.vesere.databinding.FragmentSettingBinding
 
 class SettingFragment : Fragment() {
@@ -22,7 +24,8 @@ class SettingFragment : Fragment() {
         val binding: FragmentSettingBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_setting, container, false)
         val application = requireNotNull(this.activity).application
-        val dataSource = EventDatabase.getInstance(application).eventDatabaseDao
+        val scope  = CoroutineScope(SupervisorJob())
+        val dataSource = AppRoomDatabase.getInstance(application, scope).categoryDao
         val viewModelFactory = SettingViewModelFactory(dataSource, application)
         val settingViewModel =
             ViewModelProvider(this, viewModelFactory).get(SettingViewModel::class.java)

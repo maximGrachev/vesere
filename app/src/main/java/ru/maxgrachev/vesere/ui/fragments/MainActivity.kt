@@ -9,6 +9,9 @@ import ru.maxgrachev.vesere.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        applicationContext.deleteDatabase("events_history_database");
+
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
     }

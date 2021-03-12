@@ -62,8 +62,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:textEvent="@{eventDetailsViewModel.event}" />
+                        app:layout_constraintTop_toTopOf="parent"/>
+<!--                    app:textEvent="@{eventDetailsViewModel.event}"-->
 
                     <TextView
                         android:id="@+id/text_date_details"
@@ -88,8 +88,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/text_date_details"
-                        app:layout_constraintTop_toTopOf="@+id/text_date_details"
-                        app:textDate="@{eventDetailsViewModel.event}" />
+                        app:layout_constraintTop_toTopOf="@+id/text_date_details" />
+<!--                    app:textDate="@{eventDetailsViewModel.event}"-->
 
                     <TextView
                         android:id="@+id/text_serviceLife_details"
@@ -116,8 +116,8 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/text_serviceLife_details"
                         app:layout_constraintTop_toTopOf="@+id/text_serviceLife_details"
-                        app:textServiceLife="@{eventDetailsViewModel.event}"
                         app:visibilityServiceLife="@{eventDetailsViewModel.event}" />
+<!--                    app:textServiceLife="@{eventDetailsViewModel.event}"-->
 
                     <TextView
                         android:id="@+id/detailsMonthText"
