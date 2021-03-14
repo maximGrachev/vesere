@@ -13,10 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.google.android.material.datepicker.MaterialDatePicker
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
 import ru.maxgrachev.vesere.R
-import ru.maxgrachev.vesere.data.local.database.AppRoomDatabase
+import ru.maxgrachev.vesere.VesereApplication
 import ru.maxgrachev.vesere.databinding.FragmentNewRecordBinding
 import ru.maxgrachev.vesere.utils.convertLongToDateString
 import java.util.*
@@ -31,9 +29,8 @@ class NewRecordFragment : Fragment() {
         val binding: FragmentNewRecordBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_new_record, container, false)
 
-        val application = requireNotNull(this.activity).application
-        val scope  = CoroutineScope(SupervisorJob())
-        val dataSource = AppRoomDatabase.getInstance(application, scope).parameterDao
+        val application = requireNotNull(this.activity).application as VesereApplication
+        val dataSource = application.database.parameterDao
         val viewModelFactory = NewRecordViewModelFactory(dataSource, application)
         val newRecordViewModel =
             ViewModelProvider(this, viewModelFactory).get(NewRecordViewModel::class.java)

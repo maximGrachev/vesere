@@ -11,11 +11,10 @@ import ru.maxgrachev.vesere.data.local.entity.Parameter
 import ru.maxgrachev.vesere.utils.MaintenanceTask
 import ru.maxgrachev.vesere.utils.convertLongToDateString
 
-class NewRecordViewModel(val database: ParameterDao, application: Application) :
+class NewRecordViewModel(private val databaseParameterDao: ParameterDao, application: Application) :
     AndroidViewModel(application) {
 
     val dateNow = convertLongToDateString(System.currentTimeMillis())
-
 
     fun createNewRecord(
         maintenanceTask: String,
@@ -31,7 +30,6 @@ class NewRecordViewModel(val database: ParameterDao, application: Application) :
         var parameterList = mutableListOf<Parameter>()
 
         viewModelScope.launch {
-
             if (maintenanceTask.isNotEmpty()) {
                 parameterList.add(
                     0,
@@ -69,7 +67,7 @@ class NewRecordViewModel(val database: ParameterDao, application: Application) :
                     4,
                     Parameter(
                         name = "Service Station Name",
-                        value = "serviceName",
+                        value = serviceName,
                         categoryId = categoryId
                     )
                 )
@@ -78,17 +76,20 @@ class NewRecordViewModel(val database: ParameterDao, application: Application) :
             if (comment.isNotEmpty()) {
                 parameterList.add(
                     5,
-                    Parameter(name = "Comment", value = "comment", categoryId = categoryId)
+                    Parameter(name = "Comment", value = comment, categoryId = categoryId)
                 )
             }
 
 //            newRecord.serviceRating = rating
 //            newRecord.dateMilli = date
-
-//            database.insertAllParameter(parameterList)
-
-            Log.v("Par", parameterList.toString())
-            database.insert(Parameter(1, "price", "1500", 1))
+            Log.v("parList", "name = ${parameterList[0].name}, value = ${parameterList[0].value.toString()}")
+            Log.v("parList", "name = ${parameterList[1].name}, value = ${parameterList[1].value.toString()}")
+            Log.v("parList", "name = ${parameterList[2].name}, value = ${parameterList[2].value.toString()}")
+            Log.v("parList", "name = ${parameterList[3].name}, value = ${parameterList[3].value.toString()}")
+            Log.v("parList", "name = ${parameterList[4].name}, value = ${parameterList[4].value.toString()}")
+            Log.v("parList", "name = ${parameterList[5].name}, value = ${parameterList[5].value.toString()}")
+//
+                    databaseParameterDao.insertAll(parameterList)
         }
     }
 }

@@ -12,10 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.google.android.material.datepicker.MaterialDatePicker
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
 import ru.maxgrachev.vesere.R
-import ru.maxgrachev.vesere.data.local.database.AppRoomDatabase
+import ru.maxgrachev.vesere.VesereApplication
 import ru.maxgrachev.vesere.databinding.FragmentEditRecordBinding
 import ru.maxgrachev.vesere.utils.convertLongToDateString
 import java.util.*
@@ -26,14 +24,14 @@ class EditRecordFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val application = requireNotNull(this.activity).application
+
         val binding: FragmentEditRecordBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_edit_record, container, false
         )
+        val application = requireNotNull(this.activity).application as VesereApplication
 
         val args = EditRecordFragmentArgs.fromBundle(requireArguments())
-        val scope  = CoroutineScope(SupervisorJob())
-        val dataSource = AppRoomDatabase.getInstance(application,scope).categoryDao
+        val dataSource = application.database.categoryDao
         val editRecordViewModelFactory = EditRecordViewModelFactory(args.eventKey, dataSource)
 
         val editRecordViewModel = ViewModelProvider(this, editRecordViewModelFactory)

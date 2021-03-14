@@ -37,16 +37,20 @@ abstract class AppRoomDatabase : RoomDatabase() {
                     val parameterDao = database.parameterDao
 
                     parameterDao.insertAll(
-                        Parameter(1, "price", "1500", 1),
-                        Parameter(2, "data", "20.03.2021", 1),
-                        Parameter(3, "price", "1500", 1)
+                        listOf(
+                            Parameter(name = "price", value = "1500", categoryId = 1),
+                            Parameter(name = "data", value = "20.03.2021", categoryId = 1),
+                            Parameter(name = "price", value = "1500", categoryId = 1)
+                        )
                     )
                     category = Category(id = 2, parentId = 2, name = "Тормозной суппорт")
                     categoryDao.insert(category)
 
                     parameterDao.insertAll(
-                        Parameter(4, "price", "1500", 2),
-                        Parameter(5, "data", "20.03.2021", 2)
+                        listOf(
+                            Parameter(name = "price", value = "1500", categoryId = 2),
+                            Parameter(name = "data", value = "20.03.2021", categoryId = 2)
+                        )
                     )
 
                     category = Category(id = 3, parentId = 2, name = "Генератор")
