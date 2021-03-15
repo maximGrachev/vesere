@@ -4,9 +4,10 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import ru.maxgrachev.vesere.data.local.dao.ParameterDao
+import ru.maxgrachev.vesere.repository.ParameterRepository
 
 class NewRecordViewModelFactory(
-    private val dataSource: ParameterDao,
+    private val dataSource: ParameterRepository,
     private val application: Application
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")

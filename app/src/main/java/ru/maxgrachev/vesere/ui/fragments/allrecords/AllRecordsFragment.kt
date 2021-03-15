@@ -34,7 +34,7 @@ class AllRecordsFragment : Fragment() {
 
         val args = AllRecordsFragmentArgs.fromBundle(requireArguments())
         val application = requireContext().applicationContext as VesereApplication
-        val dataSource = application.database.categoryDao
+        val dataSource = application.categoryRepository
         val viewModelFactory = AllRecordsViewModelFactory(dataSource, application, args)
         val allRecordsViewModel =
             ViewModelProvider(this, viewModelFactory).get(AllRecordsViewModel::class.java)

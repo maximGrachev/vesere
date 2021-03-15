@@ -30,29 +30,11 @@ abstract class AppRoomDatabase : RoomDatabase() {
                     val categoryDao = database.categoryDao
                     // Delete all content here.
                     categoryDao.deleteAll()
-                    // Add sample words.
+                    // Add sample categories.
                     var category = Category(id = 1, name = "Блок управления ABS")
                     categoryDao.insert(category)
-
-                    val parameterDao = database.parameterDao
-
-                    parameterDao.insertAll(
-                        listOf(
-                            Parameter(name = "price", value = "1500", categoryId = 1),
-                            Parameter(name = "data", value = "20.03.2021", categoryId = 1),
-                            Parameter(name = "price", value = "1500", categoryId = 1)
-                        )
-                    )
                     category = Category(id = 2, parentId = 2, name = "Тормозной суппорт")
                     categoryDao.insert(category)
-
-                    parameterDao.insertAll(
-                        listOf(
-                            Parameter(name = "price", value = "1500", categoryId = 2),
-                            Parameter(name = "data", value = "20.03.2021", categoryId = 2)
-                        )
-                    )
-
                     category = Category(id = 3, parentId = 2, name = "Генератор")
                     categoryDao.insert(category)
                     category = Category(id = 4, name = "Шаровая")

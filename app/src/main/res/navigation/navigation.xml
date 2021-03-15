@@ -32,7 +32,8 @@
         <action
             android:id="@+id/action_newRecordFragment_to_allRecordsFragment"
             app:destination="@id/allRecordsFragment"
-            app:popUpTo="@id/titleFragment" />
+            app:popUpTo="@id/allRecordsFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
@@ -58,7 +59,9 @@
         tools:layout="@layout/fragment_event_details">
         <action
             android:id="@+id/action_eventDetailsFragment_to_allRecordsFragment"
-            app:destination="@id/allRecordsFragment" />
+            app:destination="@id/allRecordsFragment"
+            app:popUpTo="@id/allRecordsFragment"
+            app:popUpToInclusive="false" />
         <argument
             android:name="eventKey"
             app:argType="integer" />
@@ -73,6 +76,8 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_editRecordFragment_to_allRecordsFragment"
-            app:destination="@id/allRecordsFragment" />
+            app:destination="@id/allRecordsFragment"
+            app:popUpTo="@id/allRecordsFragment"
+            app:popUpToInclusive="false" />
     </fragment>
 </navigation>

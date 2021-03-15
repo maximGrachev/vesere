@@ -35,7 +35,7 @@ class SettingViewModel(val database: CategoryDao, application: Application) :
 
     private suspend fun clear() {
         withContext(Dispatchers.IO) {
-//            database.clear()
+            database.deleteAll()
         }
     }
 }

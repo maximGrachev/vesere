@@ -8,16 +8,19 @@ import ru.maxgrachev.vesere.data.local.entity.relations.CategoryWithParameters
 @Dao
 interface CategoryDao {
     @Insert
-    suspend fun insert(category: Category)
+    fun insert(category: Category)
+
+    @Insert
+    suspend fun insertAll(categoryList: List<Category>)
+
+    @Delete
+    suspend fun delete(category: Category)
 
     @Query("DELETE FROM category")
     suspend fun deleteAll()
 
-    @Delete
-    suspend fun deleteWord(category: Category)
-
     @get:Query("SELECT * from category ORDER BY name ASC")
-    val allCategories: LiveData<List<Category>>
+    val AllCategories: LiveData<List<Category>>
 
     @Transaction
     @Query("SELECT * from category ORDER BY name ASC")

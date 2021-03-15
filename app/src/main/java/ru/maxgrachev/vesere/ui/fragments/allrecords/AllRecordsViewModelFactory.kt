@@ -5,9 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import ru.maxgrachev.vesere.data.local.dao.CategoryDao
 import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
+import ru.maxgrachev.vesere.repository.CategoryRepository
 
 class AllRecordsViewModelFactory(
-    private val dataSource: CategoryDao,
+    private val dataSource: CategoryRepository,
     private val application: Application,
     private val arguments: AllRecordsFragmentArgs
 ) : ViewModelProvider.Factory {

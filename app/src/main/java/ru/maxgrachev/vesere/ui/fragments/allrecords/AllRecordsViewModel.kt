@@ -3,13 +3,12 @@ package ru.maxgrachev.vesere.ui.fragments.allrecords
 import android.app.Application
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
-import ru.maxgrachev.vesere.data.local.dao.CategoryDao
 import ru.maxgrachev.vesere.data.local.entity.Category
-import ru.maxgrachev.vesere.data.local.entity.Event
+import ru.maxgrachev.vesere.repository.CategoryRepository
 import ru.maxgrachev.vesere.utils.formatEvents
 
 class AllRecordsViewModel(
-    val database: CategoryDao,
+    private val categoryRepository: CategoryRepository,
     application: Application,
     arguments: AllRecordsFragmentArgs
 ) :
@@ -49,7 +48,7 @@ class AllRecordsViewModel(
 //            "Transmission" -> database.getAllTransmission()
 //            else -> database.getAllOther()
 //        }
-        return  database.allCategories
+        return  categoryRepository.categoryList
     }
 
     fun onEventClicked(id: Int) {
@@ -70,7 +69,7 @@ class AllRecordsViewModel(
 
     fun deleteEvent(event: Category) {
         viewModelScope.launch {
-//            database.delete(event)
+            categoryRepository.delete(event)
         }
     }
 }

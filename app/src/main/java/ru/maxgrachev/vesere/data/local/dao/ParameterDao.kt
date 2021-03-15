@@ -11,17 +11,14 @@ interface ParameterDao {
     suspend fun insert(parameter: Parameter)
 
     @Insert
-    suspend fun insertAll(parameters: List<Parameter>)
+    suspend fun insertAll(parameterList: List<Parameter>)
+
+    @Delete
+    suspend fun delete(parameter: Parameter)
 
     @Query("DELETE FROM parameter")
     suspend fun deleteAll()
 
-    @Delete
-    suspend fun deleteParameter(parameter: Parameter)
-
     @get:Query("SELECT * from parameter ORDER BY name ASC")
     val getAllParameter: LiveData<List<Parameter>>
-
-//    @Query("SELECT * from word_table ORDER BY word ASC")
-//    fun getAllWords(): LiveData<List<Category?>?>?
 }
