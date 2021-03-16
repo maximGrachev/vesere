@@ -30,8 +30,9 @@ class NewRecordFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_new_record, container, false)
 
         val application = requireNotNull(this.activity).application as VesereApplication
-        val dataSource = application.parameterRepository
-        val viewModelFactory = NewRecordViewModelFactory(dataSource, application)
+        val parameterRepository = application.parameterRepository
+        val categoryRepository = application.categoryRepository
+        val viewModelFactory = NewRecordViewModelFactory(parameterRepository, categoryRepository, application)
         val newRecordViewModel =
             ViewModelProvider(this, viewModelFactory).get(NewRecordViewModel::class.java)
 

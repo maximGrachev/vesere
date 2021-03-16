@@ -17,7 +17,8 @@ import ru.maxgrachev.vesere.databinding.FragmentEventDetailsBinding
 
 class EventDetailsFragment : Fragment() {
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val binding: FragmentEventDetailsBinding = DataBindingUtil.inflate(

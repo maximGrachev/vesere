@@ -1,16 +1,22 @@
 package ru.maxgrachev.vesere.ui.fragments.newrecord
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import ru.maxgrachev.vesere.data.local.entity.Category
 import ru.maxgrachev.vesere.data.local.entity.Parameter
+import ru.maxgrachev.vesere.repository.CategoryRepository
 import ru.maxgrachev.vesere.repository.ParameterRepository
 import ru.maxgrachev.vesere.utils.convertLongToDateString
 
 class NewRecordViewModel
-    (private val parameterRepository: ParameterRepository,
-     application: Application) :
+    (
+    private val parameterRepository: ParameterRepository,
+    private val categoryRepository: CategoryRepository,
+    application: Application
+) :
     AndroidViewModel(application) {
 
     val dateNow = convertLongToDateString(System.currentTimeMillis())
@@ -25,16 +31,18 @@ class NewRecordViewModel
         comment: String,
         rating: Boolean
     ) {
-        var categoryId: Int = 1 //TODO chose categoryId using maintenanceTask value
-        var parameterList = mutableListOf<Parameter>()
+
+        var category = Category(name = maintenanceTask)
 
         viewModelScope.launch {
+            categoryRepository.insert(category)
+
             if (maintenanceTask.isNotEmpty()) {
                 parameterRepository.insert(
                     Parameter(
                         name = "Maintenance task",
                         value = maintenanceTask,
-                        categoryId = categoryId
+                        categoryId = category.id
                     )
                 )
             }
@@ -44,7 +52,8 @@ class NewRecordViewModel
                     Parameter(
                         name = "Service Life",
                         value = serviceLife,
-                        categoryId = categoryId)
+                        categoryId = category.id
+                    )
                 )
             }
 
@@ -53,7 +62,7 @@ class NewRecordViewModel
                     Parameter(
                         name = "Car Mileage",
                         value = carMileage,
-                        categoryId = categoryId
+                        categoryId = category.id
                     )
                 )
             }
@@ -63,7 +72,8 @@ class NewRecordViewModel
                     Parameter(
                         name = "Price",
                         value = price,
-                        categoryId = categoryId)
+                        categoryId = category.id
+                    )
                 )
             }
 
@@ -72,7 +82,7 @@ class NewRecordViewModel
                     Parameter(
                         name = "Service Station Name",
                         value = serviceName,
-                        categoryId = categoryId
+                        categoryId = category.id
                     )
                 )
             }
@@ -82,13 +92,27 @@ class NewRecordViewModel
                     Parameter(
                         name = "Comment",
                         value = comment,
-                        categoryId = categoryId
+                        categoryId = category.id
                     )
                 )
             }
 
-//            newRecord.serviceRating = rating
-//            newRecord.dateMilli = date
+
+            parameterRepository.insert(
+                Parameter(
+                    name = "serviceRating",
+                    value = rating.toString(),
+                    categoryId = category.id
+                )
+            )
+
+            parameterRepository.insert(
+                Parameter(
+                    name = "dateMilli",
+                    value = date.toString(),
+                    categoryId = category.id
+                )
+            )
         }
     }
 }

@@ -19,40 +19,42 @@ abstract class AppRoomDatabase : RoomDatabase() {
     abstract val categoryDao: CategoryDao
     abstract val parameterDao: ParameterDao
 
-    private class WordDatabaseCallback(
-        private val scope: CoroutineScope
-    ) : RoomDatabase.Callback() {
-
-        override fun onCreate(db: SupportSQLiteDatabase) {
-            super.onCreate(db)
-            INSTANCE?.let { database ->
-                scope.launch {
-                    val categoryDao = database.categoryDao
-                    // Delete all content here.
-                    categoryDao.deleteAll()
-                    // Add sample categories.
-                    var category = Category(id = 1, name = "Блок управления ABS")
-                    categoryDao.insert(category)
-                    category = Category(id = 2, parentId = 2, name = "Тормозной суппорт")
-                    categoryDao.insert(category)
-                    category = Category(id = 3, parentId = 2, name = "Генератор")
-                    categoryDao.insert(category)
-                    category = Category(id = 4, name = "Шаровая")
-                    categoryDao.insert(category)
-                    category = Category(id = 5, parentId = 4, name = "Тормозные диски")
-                    categoryDao.insert(category)
-                    category = Category(id = 6, parentId = 4, name = "Датчик распредвала")
-                    categoryDao.insert(category)
-                    category = Category(id = 7, name = "Поперечный рычаг")
-                    categoryDao.insert(category)
-                    category = Category(id = 8, name = "Сальники коленвала")
-                    categoryDao.insert(category)
-                    category = Category(id = 9, name = "Глушитель")
-                    categoryDao.insert(category)
-                }
-            }
-        }
-    }
+//    private class WordDatabaseCallback(
+//        private val scope: CoroutineScope
+//    ) : RoomDatabase.Callback() {
+//
+//        override fun onCreate(db: SupportSQLiteDatabase) {
+//            super.onCreate(db)
+//            INSTANCE?.let { database ->
+//                scope.launch {
+//                    val categoryDao = database.categoryDao
+//                    // Delete all content here.
+//                    categoryDao.deleteAll()
+//                    // Add sample categories.
+//                    var category = Category(id = 1, name = "All")
+//                    categoryDao.insert(category)
+//                    category = Category(id = 2, parentId = 2, name = "Oil change")
+//                    categoryDao.insert(category)
+//                    category = Category(id = 3, parentId = 2, name = "Transmission")
+//                    categoryDao.insert(category)
+//                    category = Category(id = 4, name = "Antifreeze change")
+//                    categoryDao.insert(category)
+//                    category = Category(id = 5, parentId = 4, name = "Maintenance")
+//                    categoryDao.insert(category)
+//                    category = Category(id = 6, parentId = 4, name = "Computer diagnostics")
+//                    categoryDao.insert(category)
+//                    category = Category(id = 7, name = "Brake repair")
+//                    categoryDao.insert(category)
+//                    category = Category(id = 8, name = "Engine work")
+//                    categoryDao.insert(category)
+//                    category = Category(id = 9, name = "Electrical systems")
+//                    categoryDao.insert(category)
+//                    category = Category(id = 10, name = "Other")
+//                    categoryDao.insert(category)
+//                }
+//            }
+//        }
+//    }
 
     companion object {
         @Volatile
@@ -69,7 +71,7 @@ abstract class AppRoomDatabase : RoomDatabase() {
                         "events_history_database"
                     )
                         .fallbackToDestructiveMigration()
-                        .addCallback(WordDatabaseCallback(scope))
+//                        .addCallback(WordDatabaseCallback(scope))
                         .build()
                     INSTANCE = instance
                 }

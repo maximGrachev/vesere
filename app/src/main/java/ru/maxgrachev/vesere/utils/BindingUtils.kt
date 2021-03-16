@@ -1,8 +1,6 @@
 package ru.maxgrachev.vesere.utils
 
-import android.annotation.SuppressLint
 import android.view.View
-import android.widget.Switch
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.google.android.material.switchmaterial.SwitchMaterial

@@ -19,7 +19,7 @@ interface CategoryDao {
     @Query("DELETE FROM category")
     suspend fun deleteAll()
 
-    @get:Query("SELECT * from category ORDER BY name ASC")
+    @get:Query("SELECT * from category ORDER BY id DESC")
     val AllCategories: LiveData<List<Category>>
 
     @Transaction
