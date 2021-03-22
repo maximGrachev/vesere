@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.maxgrachev.vesere.R
 import ru.maxgrachev.vesere.data.local.entity.Category
 import ru.maxgrachev.vesere.data.local.entity.Event
+import ru.maxgrachev.vesere.data.local.entity.relations.CategoryWithParameters
 import java.text.SimpleDateFormat
 
 @SuppressLint("SimpleDateFormat")

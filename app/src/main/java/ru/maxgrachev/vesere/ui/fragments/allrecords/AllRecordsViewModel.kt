@@ -2,7 +2,9 @@ package ru.maxgrachev.vesere.ui.fragments.allrecords
 
 import android.app.Application
 import androidx.lifecycle.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import ru.maxgrachev.vesere.data.local.entity.Category
 import ru.maxgrachev.vesere.repository.CategoryRepository
 import ru.maxgrachev.vesere.utils.formatEvents
@@ -16,7 +18,7 @@ class AllRecordsViewModel(
         Application()
     ) {
 
-    var records: LiveData<List<Category>>
+    lateinit var records: LiveData<List<Category>>
     private var arg: String = arguments.eventTypeKeyWord
 
     private val _navigateToEventDetail = MutableLiveData<Int>()
@@ -36,19 +38,15 @@ class AllRecordsViewModel(
     }
 
     private fun takeEventData(arg: String): LiveData<List<Category>> {
-//        return when (arg) {
-//            "Oil change" -> database.getAllOilChange()
-//            "Antifreeze change" -> database.getAllAntifreezeChange()
-//            "Maintenance" -> database.getAllMaintenance()
-//            "Computer diagnostics" -> database.getAllComputerDiagnostics()
-//            "Brake repair" -> database.getAllBreakRepair()
-//            "Engine work" -> database.getAllEngineWork()
-//            "Electrical Systems" -> database.getAllElectricalSystems()
-//            "All" -> database.getAllEvents()
-//            "Transmission" -> database.getAllTransmission()
-//            else -> database.getAllOther()
+//        viewModelScope.launch{
+//            records = categoryRepository.getCategoryToShow(arg)
 //        }
-        return  categoryRepository.categoryList
+        return when (arg) {
+            "Oil change" -> categoryRepository.OilChangeCategory
+            "Antifreeze change" -> categoryRepository.AntifreezeChangeCategory
+            else -> categoryRepository.categoryList
+//        }
+        }
     }
 
     fun onEventClicked(id: Int) {

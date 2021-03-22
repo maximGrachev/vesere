@@ -6,8 +6,16 @@ import androidx.databinding.BindingAdapter
 import com.google.android.material.switchmaterial.SwitchMaterial
 import ru.maxgrachev.vesere.data.local.entity.Category
 import ru.maxgrachev.vesere.data.local.entity.Event
+import ru.maxgrachev.vesere.data.local.entity.relations.CategoryWithParameters
 
 @BindingAdapter("textEvent")
+fun TextView.setEventType(item: CategoryWithParameters?) {
+    item?.let {
+        text = item.category.name
+    }
+}
+
+@BindingAdapter("textEventAllRec") //TODO delete this function bc textEvent must be CategoryWithParameters
 fun TextView.setEventType(item: Category?) {
     item?.let {
         text = item.name

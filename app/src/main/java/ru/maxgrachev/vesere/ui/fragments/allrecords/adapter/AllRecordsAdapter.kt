@@ -19,6 +19,10 @@ class AllRecordsAdapter(
         return ViewHolder.from(parent)
     }
 
+    public override fun getItem(position: Int): Category {
+        return super.getItem(position)
+    }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item!!, clickListener, deleteClickListener, editClickListener)

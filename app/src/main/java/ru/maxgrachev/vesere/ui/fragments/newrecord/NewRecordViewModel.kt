@@ -1,7 +1,6 @@
 package ru.maxgrachev.vesere.ui.fragments.newrecord
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
@@ -32,27 +31,18 @@ class NewRecordViewModel
         rating: Boolean
     ) {
 
-        var category = Category(name = maintenanceTask)
-
         viewModelScope.launch {
+            categoryRepository.lastAddedCategoryID++
+            val category = Category(id = categoryRepository.lastAddedCategoryID, name = maintenanceTask)
             categoryRepository.insert(category)
-
-            if (maintenanceTask.isNotEmpty()) {
-                parameterRepository.insert(
-                    Parameter(
-                        name = "Maintenance task",
-                        value = maintenanceTask,
-                        categoryId = category.id
-                    )
-                )
-            }
+            val addedCategoryID = categoryRepository.lastAddedCategoryID //TODO how to get an id????
 
             if (serviceLife.isNotEmpty()) {
                 parameterRepository.insert(
                     Parameter(
                         name = "Service Life",
                         value = serviceLife,
-                        categoryId = category.id
+                        categoryId = addedCategoryID
                     )
                 )
             }
@@ -62,7 +52,7 @@ class NewRecordViewModel
                     Parameter(
                         name = "Car Mileage",
                         value = carMileage,
-                        categoryId = category.id
+                        categoryId = addedCategoryID
                     )
                 )
             }
@@ -72,7 +62,7 @@ class NewRecordViewModel
                     Parameter(
                         name = "Price",
                         value = price,
-                        categoryId = category.id
+                        categoryId = addedCategoryID
                     )
                 )
             }
@@ -82,7 +72,7 @@ class NewRecordViewModel
                     Parameter(
                         name = "Service Station Name",
                         value = serviceName,
-                        categoryId = category.id
+                        categoryId = addedCategoryID
                     )
                 )
             }
@@ -92,17 +82,16 @@ class NewRecordViewModel
                     Parameter(
                         name = "Comment",
                         value = comment,
-                        categoryId = category.id
+                        categoryId = addedCategoryID
                     )
                 )
             }
-
 
             parameterRepository.insert(
                 Parameter(
                     name = "serviceRating",
                     value = rating.toString(),
-                    categoryId = category.id
+                    categoryId = addedCategoryID
                 )
             )
 
@@ -110,7 +99,7 @@ class NewRecordViewModel
                 Parameter(
                     name = "dateMilli",
                     value = date.toString(),
-                    categoryId = category.id
+                    categoryId = addedCategoryID
                 )
             )
         }

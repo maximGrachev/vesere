@@ -43,7 +43,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:textEvent="@{event}" />
+            app:textEventAllRec="@{event}" />
 
         <TextView
             android:id="@+id/text_date"

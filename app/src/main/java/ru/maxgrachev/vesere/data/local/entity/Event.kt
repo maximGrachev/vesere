@@ -28,7 +28,7 @@ data class Event(
     var serviceStationName: String = "-",
 
     @ColumnInfo(name = "service_rating")
-    var serviceRating: Boolean = false, //TODO var serviceRating: Boolean? = null
+    var serviceRating: Boolean = false,
 
     @ColumnInfo(name = "comment")
     var comment: String = "-"

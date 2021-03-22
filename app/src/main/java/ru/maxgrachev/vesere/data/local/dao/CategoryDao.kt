@@ -22,10 +22,19 @@ interface CategoryDao {
     @get:Query("SELECT * from category ORDER BY id DESC")
     val AllCategories: LiveData<List<Category>>
 
-    @Transaction
-    @Query("SELECT * from category ORDER BY name ASC")
-    fun allCategoriesWithParamaters(): LiveData<List<CategoryWithParameters>>
+    @Query("SELECT * from category WHERE name = \"Oil change\" ORDER BY id DESC")
+    fun getAllOilChange(): LiveData<List<Category>>
 
-//    @Query("SELECT * from word_table ORDER BY word ASC")
-//    fun getAllWords(): LiveData<List<Category?>?>?
+    @Query("SELECT * from category WHERE name = \"Antifreeze change\" ORDER BY id DESC")
+    fun getAllAntifreezeChange(): LiveData<List<Category>>
+
+    @get:Query("SELECT * FROM category WHERE id=(SELECT max(id) FROM category)")
+    val LastAddedCategory: LiveData<Category>
+
+//    @Query("SELECT * from category WHERE name = :categoryName") //TODO getAllCategoryWithName with categoryName
+//    suspend fun getAllCategoryWithName(categoryName: String?): LiveData<List<Category>>
+
+    @Transaction
+    @Query("SELECT * FROM category WHERE id=:categoryID")
+    fun getCategoryWithParamater(categoryID: Int): LiveData<CategoryWithParameters>
 }
