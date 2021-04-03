@@ -2,6 +2,8 @@ package ru.maxgrachev.vesere.data.local.entity
 
 import android.os.Parcelable
 import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.ForeignKey.CASCADE
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 

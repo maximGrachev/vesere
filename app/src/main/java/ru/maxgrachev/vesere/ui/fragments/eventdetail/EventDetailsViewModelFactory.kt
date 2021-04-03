@@ -2,8 +2,6 @@ package ru.maxgrachev.vesere.ui.fragments.eventdetail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import ru.maxgrachev.vesere.data.local.dao.CategoryDao
-import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
 import ru.maxgrachev.vesere.repository.CategoryRepository
 
 class EventDetailsViewModelFactory(

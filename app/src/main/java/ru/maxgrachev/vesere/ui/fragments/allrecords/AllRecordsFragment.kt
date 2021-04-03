@@ -20,6 +20,7 @@ import ru.maxgrachev.vesere.allrecords.DeleteClickListener
 import ru.maxgrachev.vesere.allrecords.EditClickListener
 import ru.maxgrachev.vesere.allrecords.EventListener
 import ru.maxgrachev.vesere.data.local.entity.Category
+import ru.maxgrachev.vesere.data.local.entity.relations.CategoryWithParameters
 import ru.maxgrachev.vesere.databinding.FragmentAllRecordsBinding
 
 class AllRecordsFragment : Fragment() {
@@ -48,8 +49,8 @@ class AllRecordsFragment : Fragment() {
             EventListener { categoryID ->
                 allRecordsViewModel.onEventClicked(categoryID)
             },
-            DeleteClickListener { category: Category ->
-                allRecordsViewModel.deleteEvent(category)
+            DeleteClickListener { categoryWithParameter: CategoryWithParameters ->
+                allRecordsViewModel.deleteEvent(categoryWithParameter)
 
             },
             EditClickListener { categoryId ->
@@ -59,7 +60,7 @@ class AllRecordsFragment : Fragment() {
 
         binding.listRecords.adapter = adapter
 
-        allRecordsViewModel.records.observe(viewLifecycleOwner, Observer {
+        allRecordsViewModel.recordsWithParameter.observe(viewLifecycleOwner, Observer {
             it?.let {
                 adapter.submitList(it)
             }
@@ -114,9 +115,9 @@ class AllRecordsFragment : Fragment() {
                     direction: Int
                 ) {
                     val position = viewHolder.adapterPosition
-                    val myEvent: Category = adapter.getItem(position)
+                    val myCategoryWithParameters: CategoryWithParameters = adapter.getItem(position)
 
-                    allRecordsViewModel.deleteEvent(myEvent)
+                    allRecordsViewModel.deleteEvent(myCategoryWithParameters)
                 }
             })
 

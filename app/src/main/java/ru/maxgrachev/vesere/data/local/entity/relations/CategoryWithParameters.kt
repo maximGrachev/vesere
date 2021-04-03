@@ -1,6 +1,7 @@
 package ru.maxgrachev.vesere.data.local.entity.relations
 
 import androidx.room.Embedded
+import androidx.room.Entity
 import androidx.room.Relation
 import ru.maxgrachev.vesere.data.local.entity.Category
 import ru.maxgrachev.vesere.data.local.entity.Parameter

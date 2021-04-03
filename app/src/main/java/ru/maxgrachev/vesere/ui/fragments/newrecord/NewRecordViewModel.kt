@@ -1,6 +1,7 @@
 package ru.maxgrachev.vesere.ui.fragments.newrecord
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
@@ -37,6 +38,7 @@ class NewRecordViewModel
             categoryRepository.insert(category)
             val addedCategoryID = categoryRepository.lastAddedCategoryID //TODO how to get an id????
 
+            //TODO parameter can't be added
             if (serviceLife.isNotEmpty()) {
                 parameterRepository.insert(
                     Parameter(
@@ -89,7 +91,7 @@ class NewRecordViewModel
 
             parameterRepository.insert(
                 Parameter(
-                    name = "serviceRating",
+                    name = "Service Rating",
                     value = rating.toString(),
                     categoryId = addedCategoryID
                 )
@@ -97,7 +99,7 @@ class NewRecordViewModel
 
             parameterRepository.insert(
                 Parameter(
-                    name = "dateMilli",
+                    name = "Date Milli",
                     value = date.toString(),
                     categoryId = addedCategoryID
                 )

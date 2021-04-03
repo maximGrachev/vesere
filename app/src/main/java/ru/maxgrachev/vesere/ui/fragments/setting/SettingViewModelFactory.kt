@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import ru.maxgrachev.vesere.data.local.dao.CategoryDao
-import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
 
 class SettingViewModelFactory(
     private val dataSource: CategoryDao,

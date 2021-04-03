@@ -63,7 +63,8 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:textEvent="@{eventDetailsViewModel.event}"/>
+                        app:textEventAllRec="@{eventDetailsViewModel.event}" />
+                    <!--                    -->
 
                     <TextView
                         android:id="@+id/text_date_details"
@@ -88,8 +89,9 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/text_date_details"
-                        app:layout_constraintTop_toTopOf="@+id/text_date_details" />
-<!--                    app:textDate="@{eventDetailsViewModel.event}"-->
+                        app:layout_constraintTop_toTopOf="@+id/text_date_details"
+                        app:textDate="@{eventDetailsViewModel.event}" />
+
 
                     <TextView
                         android:id="@+id/text_serviceLife_details"
@@ -101,8 +103,7 @@
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/text_date_details"
                         app:layout_constraintTop_toBottomOf="@+id/text_date_details"
-                         />
-<!--                    app:visibilityServiceLife="@{eventDetailsViewModel.event}"-->
+                        app:visibilityServiceLife="@{eventDetailsViewModel.event}" />
 
                     <TextView
                         android:id="@+id/service_life_value_details"
@@ -117,9 +118,8 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/text_serviceLife_details"
                         app:layout_constraintTop_toTopOf="@+id/text_serviceLife_details"
-                         />
-<!--                    app:visibilityServiceLife="@{eventDetailsViewModel.event}"-->
-<!--                    app:textServiceLife="@{eventDetailsViewModel.event}"-->
+                        app:textServiceLife="@{eventDetailsViewModel.event}"
+                        app:visibilityServiceLife="@{eventDetailsViewModel.event}" />
 
                     <TextView
                         android:id="@+id/detailsMonthText"
@@ -133,8 +133,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/service_life_value_details"
-                         />
-<!--                    app:visibilityServiceLife="@{eventDetailsViewModel.event}"-->
+                        app:visibilityServiceLife="@{eventDetailsViewModel.event}" />
+
 
                     <TextView
                         android:id="@+id/text_carMileage_details"
@@ -146,8 +146,7 @@
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/text_serviceLife_details"
                         app:layout_constraintTop_toBottomOf="@+id/text_serviceLife_details"
-                         />
-<!--                    app:visibilityCarMileage="@{eventDetailsViewModel.event}"-->
+                        app:visibilityCarMileage="@{eventDetailsViewModel.event}"/>
 
                     <TextView
                         android:id="@+id/car_mileage_value_details"
@@ -162,9 +161,8 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/text_carMileage_details"
                         app:layout_constraintTop_toTopOf="@+id/text_carMileage_details"
-                         />
-<!--                    app:textCarMileage="@{eventDetailsViewModel.event}"
-                        app:visibilityCarMileage="@{eventDetailsViewModel.event}"-->
+                        app:textCarMileage="@{eventDetailsViewModel.event}"
+                        app:visibilityCarMileage="@{eventDetailsViewModel.event}"/>
 
                     <TextView
                         android:id="@+id/text_price_details"
@@ -176,8 +174,7 @@
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/text_carMileage_details"
                         app:layout_constraintTop_toBottomOf="@+id/text_carMileage_details"
-                         />
-<!--                    app:visibilityPrice="@{eventDetailsViewModel.event}"-->
+                        app:visibilityPrice="@{eventDetailsViewModel.event}"/>
 
                     <TextView
                         android:id="@+id/price_value_details"
@@ -192,9 +189,9 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/text_price_details"
                         app:layout_constraintTop_toTopOf="@+id/text_price_details"
-                         />
-<!--                    app:textPrice="@{eventDetailsViewModel.event}"
-                        app:visibilityPrice="@{eventDetailsViewModel.event}"-->
+                        app:textPrice="@{eventDetailsViewModel.event}"
+                        app:visibilityPrice="@{eventDetailsViewModel.event}"/>
+
 
                     <TextView
                         android:id="@+id/textView2"
@@ -210,8 +207,7 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/price_value_details"
                         app:layout_constraintTop_toTopOf="@+id/text_price_details"
-                         />
-<!--                    app:visibilityPrice="@{eventDetailsViewModel.event}"-->
+                        app:visibilityPrice="@{eventDetailsViewModel.event}"/>
 
                     <TextView
                         android:id="@+id/text_serviceStation_details"
@@ -223,8 +219,7 @@
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/text_price_details"
                         app:layout_constraintTop_toBottomOf="@+id/text_price_details"
-                         />
-<!--                    app:visibilityServiceStation="@{eventDetailsViewModel.event}"-->
+                        app:visibilityServiceStation="@{eventDetailsViewModel.event}"/>
 
                     <TextView
                         android:id="@+id/service_station_value_details"
@@ -239,9 +234,8 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/text_serviceStation_details"
                         app:layout_constraintTop_toTopOf="@+id/text_serviceStation_details"
-                         />
-<!--                    app:textServiceStation="@{eventDetailsViewModel.event}"
-                        app:visibilityServiceStation="@{eventDetailsViewModel.event}"-->
+                        app:textServiceStation="@{eventDetailsViewModel.event}"
+                        app:visibilityServiceStation="@{eventDetailsViewModel.event}"/>
 
                     <TextView
                         android:id="@+id/text_rating_details"
@@ -253,8 +247,7 @@
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/text_serviceStation_details"
                         app:layout_constraintTop_toBottomOf="@+id/text_serviceStation_details"
-                        />
-<!--                    app:visibilityRating="@{eventDetailsViewModel.event}"-->
+                        app:visibilityRating="@{eventDetailsViewModel.event}"/>
 
                     <TextView
                         android:id="@+id/rating_value_details"
@@ -269,10 +262,8 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/text_rating_details"
                         app:layout_constraintTop_toTopOf="@+id/text_rating_details"
-                         />
-<!--                    app:textRating="@{eventDetailsViewModel.event}"
-                        app:visibilityRating="@{eventDetailsViewModel.event}"-->
-
+                        app:textRating="@{eventDetailsViewModel.event}"
+                        app:visibilityRating="@{eventDetailsViewModel.event}"/>
 
                     <TextView
                         android:id="@+id/text_comment_details"
@@ -286,8 +277,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/text_rating_details"
                         app:layout_constraintTop_toBottomOf="@+id/text_rating_details"
-                         />
-<!--                    app:visibilityComment="@{eventDetailsViewModel.event}"-->
+                        app:visibilityComment="@{eventDetailsViewModel.event}"/>
 
                     <TextView
                         android:id="@+id/textView8"
@@ -302,9 +292,8 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/text_comment_details"
                         app:layout_constraintTop_toTopOf="@+id/text_comment_details"
-                        />
-<!--                    app:textComment="@{eventDetailsViewModel.event}"
-                        app:visibilityComment="@{eventDetailsViewModel.event}" -->
+                        app:textComment="@{eventDetailsViewModel.event}"
+                        app:visibilityComment="@{eventDetailsViewModel.event}"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>

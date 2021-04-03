@@ -8,9 +8,6 @@ import android.text.Spanned
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
-import ru.maxgrachev.vesere.R
-import ru.maxgrachev.vesere.data.local.entity.Category
-import ru.maxgrachev.vesere.data.local.entity.Event
 import ru.maxgrachev.vesere.data.local.entity.relations.CategoryWithParameters
 import java.text.SimpleDateFormat
 
@@ -20,10 +17,10 @@ fun convertLongToDateString(systemTime: Long): String {
         .format(systemTime).toString()
 }
 
-fun formatEvents(events: List<Category>, resources: Resources): Spanned {
+fun formatEvents(categoryWithParameters: List<CategoryWithParameters>, resources: Resources): Spanned {
     val sb = StringBuilder()
     sb.apply {
-        events.forEach {
+        categoryWithParameters.forEach {
             append("<br>")
 //            append("<b>${it.eventName}</b><br>")
 //            append(resources.getString(R.string.date_AE))

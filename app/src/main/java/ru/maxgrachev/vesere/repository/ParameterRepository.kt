@@ -1,5 +1,6 @@
 package ru.maxgrachev.vesere.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -13,6 +14,12 @@ class ParameterRepository(private val parameterDao: ParameterDao) {
     suspend fun insert(parameter: Parameter) {
         withContext(Dispatchers.IO) {
             parameterDao.insert(parameter)
+        }
+    }
+
+    suspend fun updateParameter(parameter: Parameter) {
+        withContext(Dispatchers.IO) {
+            parameterDao.updateParameter(parameter)
         }
     }
 

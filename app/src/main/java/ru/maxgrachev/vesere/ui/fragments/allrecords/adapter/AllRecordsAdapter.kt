@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.maxgrachev.vesere.data.local.entity.Category
+import ru.maxgrachev.vesere.data.local.entity.relations.CategoryWithParameters
 import ru.maxgrachev.vesere.databinding.ListItemOneRecordBinding
 
 class AllRecordsAdapter(
@@ -13,13 +14,13 @@ class AllRecordsAdapter(
     private val deleteClickListener: DeleteClickListener,
     private val editClickListener: EditClickListener
 ) :
-    ListAdapter<Category, AllRecordsAdapter.ViewHolder>(AllRecordsDiffCallback()) {
+    ListAdapter<CategoryWithParameters, AllRecordsAdapter.ViewHolder>(AllRecordsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
 
-    public override fun getItem(position: Int): Category {
+    public override fun getItem(position: Int): CategoryWithParameters {
         return super.getItem(position)
     }
 
@@ -32,12 +33,12 @@ class AllRecordsAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-            item: Category,
+            item: CategoryWithParameters,
             clickListener: EventListener,
             deleteClickListener: DeleteClickListener,
             editClickListener: EditClickListener
         ) {
-            binding.event = item
+            binding.eventWithParameter = item
             binding.clickListener = clickListener
             binding.deleteClickListener = deleteClickListener
             binding.editClickListener = editClickListener
@@ -54,26 +55,26 @@ class AllRecordsAdapter(
     }
 }
 
-class AllRecordsDiffCallback : DiffUtil.ItemCallback<Category>() {
-    override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
-        return oldItem.id == newItem.id
+class AllRecordsDiffCallback : DiffUtil.ItemCallback<CategoryWithParameters>() {
+    override fun areItemsTheSame(oldItem: CategoryWithParameters, newItem: CategoryWithParameters): Boolean {
+        return oldItem.category.id == newItem.category.id
     }
 
-    override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {
-        return oldItem == newItem
+    override fun areContentsTheSame(oldItem: CategoryWithParameters, newItem: CategoryWithParameters): Boolean {
+        return oldItem.category == newItem.category
     }
 
 }
 
 class EventListener(val clickListener: (id: Int) -> Unit) {
-    fun onClick(event: Category) = clickListener(event.id!!)
+    fun onClick(event: CategoryWithParameters) = clickListener(event.category.id!!)
 }
 
-class DeleteClickListener(val deleteClickListener: (event: Category) -> Unit) {
-    fun onClick(event: Category) = deleteClickListener(event)
+class DeleteClickListener(val deleteClickListener: (event: CategoryWithParameters) -> Unit) {
+    fun onClick(event: CategoryWithParameters) = deleteClickListener(event)
 }
 
 class EditClickListener(val editClickListener: (id: Int) -> Unit) {
-    fun onClick(event: Category) = editClickListener(event.id!!)
+    fun onClick(event: CategoryWithParameters) = editClickListener(event.category.id!!)
 }
 

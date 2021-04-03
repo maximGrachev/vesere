@@ -2,13 +2,15 @@ package ru.maxgrachev.vesere.data.local.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import ru.maxgrachev.vesere.data.local.entity.Category
 import ru.maxgrachev.vesere.data.local.entity.Parameter
 
 @Dao
 interface ParameterDao {
     @Insert
     suspend fun insert(parameter: Parameter)
+
+    @Update
+    suspend fun updateParameter(parameter: Parameter)
 
     @Insert
     suspend fun insertAll(parameterList: List<Parameter>)

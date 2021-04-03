@@ -9,7 +9,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.maxgrachev.vesere.data.local.dao.CategoryDao
-import ru.maxgrachev.vesere.data.local.dao.EventDatabaseDao
 
 class SettingViewModel(val database: CategoryDao, application: Application) :
     AndroidViewModel(application) {

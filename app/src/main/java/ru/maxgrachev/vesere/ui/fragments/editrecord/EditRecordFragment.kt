@@ -29,10 +29,12 @@ class EditRecordFragment : Fragment() {
             inflater, R.layout.fragment_edit_record, container, false
         )
         val application = requireNotNull(this.activity).application as VesereApplication
+        val parameterRepository = application.parameterRepository
+        val categoryRepository = application.categoryRepository
 
         val args = EditRecordFragmentArgs.fromBundle(requireArguments())
         val dataSource = application.database.categoryDao
-        val editRecordViewModelFactory = EditRecordViewModelFactory(args.eventKey, dataSource)
+        val editRecordViewModelFactory = EditRecordViewModelFactory(args.eventKey, parameterRepository, categoryRepository)
 
         val editRecordViewModel = ViewModelProvider(this, editRecordViewModelFactory)
             .get(EditRecordViewModel::class.java)
@@ -74,7 +76,7 @@ class EditRecordFragment : Fragment() {
                 )
                 editRecordViewModel.getEvent().value?.let {
                     editRecordViewModel.updateRecord(
-                        it.eventID,
+                        it.category.id,
                         binding.editTextMaintenanceTaskEditRecord.editText?.text.toString(),
                         calendar.timeInMillis,
                         binding.editTextServiceLifeEditRecord.editText?.text.toString(),

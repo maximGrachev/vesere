@@ -19,7 +19,7 @@ class CategoryRepository(private val categoryDao: CategoryDao) {
 //        }
 //    }
 
-    var categoryList: LiveData<List<Category>> = categoryDao.AllCategories
+    var categoryList: LiveData<List<Category>> = categoryDao.AllCategories()
     lateinit var categoryWithParametersList: LiveData<CategoryWithParameters>
     var OilChangeCategory: LiveData<List<Category>> = categoryDao.getAllOilChange()
     var AntifreezeChangeCategory: LiveData<List<Category>> = categoryDao.getAllAntifreezeChange()
@@ -31,14 +31,24 @@ class CategoryRepository(private val categoryDao: CategoryDao) {
         }
     }
 
-    suspend fun delete(category: Category) {
+    suspend fun delete(categoryWithParameters: CategoryWithParameters) {
         withContext(Dispatchers.IO) {
-            categoryDao.delete(category)
+            categoryDao.delete(categoryWithParameters.category)
         }
+    }
+
+    fun getAllCategoryWithParameter(): LiveData<List<CategoryWithParameters>>{
+        return categoryDao.getAllCategoryWithParamater()
     }
 
     fun getCategoryWithParameterByID(categoryID: Int): LiveData<CategoryWithParameters>{
         return categoryDao.getCategoryWithParamater(categoryID)
+    }
+
+    suspend fun updateCategory(category: Category) {
+        withContext(Dispatchers.IO) {
+            categoryDao.updateCategory(category)
+        }
     }
 
 

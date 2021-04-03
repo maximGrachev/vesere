@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="event"
-            type="ru.maxgrachev.vesere.data.local.entity.Category" />
+            name="eventWithParameter"
+            type="ru.maxgrachev.vesere.data.local.entity.relations.CategoryWithParameters" />
 
         <variable
             name="clickListener"
@@ -34,7 +34,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:onClick="@{()->clickListener.onClick(event)}"
+            android:onClick="@{()->clickListener.onClick(eventWithParameter)}"
             android:text="Oil change"
             android:textColor="@color/primaryLightColor"
             android:textSize="18sp"
@@ -43,7 +43,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:textEventAllRec="@{event}" />
+            app:textEventAllRec="@{eventWithParameter}" />
 
         <TextView
             android:id="@+id/text_date"
@@ -51,8 +51,8 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:onClick="@{()->clickListener.onClick(event)}"
-            android:text="24.02.2020"
+            android:onClick="@{()->clickListener.onClick(eventWithParameter)}"
+            android:text="24.02.1999"
             android:textColor="@color/primaryLightColor"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +60,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/text_event"
             app:layout_constraintTop_toBottomOf="@+id/text_event"
-            app:textDate="@{event}" />
+            app:textDate="@{eventWithParameter}" />
 
         <Button
             android:id="@+id/button_edit"
@@ -71,7 +71,7 @@
             app:icon="@drawable/ic_edit_24px"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button_delete"
-            android:onClick="@{()->editClickListener.onClick(event)}"
+            android:onClick="@{()->editClickListener.onClick(eventWithParameter)}"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
@@ -81,7 +81,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="16dp"
-            android:onClick="@{()->deleteClickListener.onClick(event)}"
+            android:onClick="@{()->deleteClickListener.onClick(eventWithParameter)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

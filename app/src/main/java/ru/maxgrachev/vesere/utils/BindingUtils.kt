@@ -4,46 +4,51 @@ import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.google.android.material.switchmaterial.SwitchMaterial
-import ru.maxgrachev.vesere.data.local.entity.Category
-import ru.maxgrachev.vesere.data.local.entity.Event
+import ru.maxgrachev.vesere.data.local.entity.Parameter
 import ru.maxgrachev.vesere.data.local.entity.relations.CategoryWithParameters
 
-@BindingAdapter("textEvent")
+//@BindingAdapter("textEvent")
+//fun TextView.setEventType(item: CategoryWithParameters?) {
+//    item?.let {
+//        text = item.category.name
+//    }
+//}
+
+@BindingAdapter("textEventAllRec")
 fun TextView.setEventType(item: CategoryWithParameters?) {
     item?.let {
         text = item.category.name
     }
 }
 
-@BindingAdapter("textEventAllRec") //TODO delete this function bc textEvent must be CategoryWithParameters
-fun TextView.setEventType(item: Category?) {
-    item?.let {
-        text = item.name
-    }
-}
-
 @BindingAdapter("textDate")
-fun TextView.setEventDataFormatted(item: Category?) {
+fun TextView.setEventDataFormatted(item: CategoryWithParameters?) {
     item?.let {
-//        text = convertLongToDateString(item.id)
+        val dateText = findParameterValueByName(item.parameters, "Date Milli")
+        text =
+            convertLongToDateString(dateText!!.toLong()) //TODO как выбрать дату из списка параметров
     }
 }
 
 @BindingAdapter("textServiceLife")
-fun TextView.setEventServiceLife(item: Category?) {
+fun TextView.setEventServiceLife(item: CategoryWithParameters?) {
     item?.let {
-//        if (item.serviceLife != -1) {
-//            text = item.serviceLife.toString()
-//        } else {
-//            text = ""
-//        }
+        val serviceLifeText = findParameterValueByName(item!!.parameters, "Service Life")
+
+        text = if (serviceLifeText!!.toInt() < 0) {
+            ""
+        } else {
+            serviceLifeText
+        }
     }
 }
 
 @BindingAdapter("visibilityServiceLife")
-fun TextView.setVisibilityEventServiceLife(item: Event?) {
+fun TextView.setVisibilityEventServiceLife(item: CategoryWithParameters?) {
     item?.let {
-        visibility = if (item.serviceLife < 0) {
+        val serviceLifeText = findParameterValueByName(item!!.parameters, "Service Life")
+
+        visibility = if (serviceLifeText!!.toInt() < 0) {
             View.GONE
         } else {
             View.VISIBLE
@@ -52,21 +57,25 @@ fun TextView.setVisibilityEventServiceLife(item: Event?) {
 }
 
 @BindingAdapter("textCarMileage")
-fun TextView.setEventCarMileage(item: Event?) {
+fun TextView.setEventCarMileage(item: CategoryWithParameters?) {
     item?.let {
-        if (item.carMileage !== -1) {
-            text = item.carMileage.toString()
-        } else {
-            text = ""
-        }
+        val carMileageText = findParameterValueByName(item!!.parameters, "Car Mileage")
 
+        text = if (carMileageText!!.toInt() < 0) {
+            ""
+        } else {
+            carMileageText
+        }
     }
 }
 
+
 @BindingAdapter("visibilityCarMileage")
-fun TextView.setVisibilityCarMileage(item: Event?) {
+fun TextView.setVisibilityCarMileage(item: CategoryWithParameters?) {
     item?.let {
-        visibility = if (item.carMileage < 0) {
+        val carMileageText = findParameterValueByName(item!!.parameters, "Car Mileage")
+
+        visibility = if (carMileageText!!.toInt() < 0) {
             View.GONE
         } else {
             View.VISIBLE
@@ -75,20 +84,25 @@ fun TextView.setVisibilityCarMileage(item: Event?) {
 }
 
 @BindingAdapter("textPrice")
-fun TextView.setEventPrice(item: Event?) {
+fun TextView.setEventPrice(item: CategoryWithParameters?) {
     item?.let {
-        if (item.price != -1) {
-            text = item.price.toString()
+        val priceText = findParameterValueByName(item.parameters, "Price")
+
+        text = if (priceText!!.toInt() < 0) {
+            ""
         } else {
-            text = ""
+            priceText
         }
     }
 }
 
+
 @BindingAdapter("visibilityPrice")
-fun TextView.setVisibilityPrice(item: Event?) {
+fun TextView.setVisibilityPrice(item: CategoryWithParameters?) {
     item?.let {
-        visibility = if (item.price < 0) {
+        val priceText = findParameterValueByName(item.parameters, "Price")
+
+        visibility = if (priceText!!.toInt() < 0) {
             View.GONE
         } else {
             View.VISIBLE
@@ -96,21 +110,26 @@ fun TextView.setVisibilityPrice(item: Event?) {
     }
 }
 
+
 @BindingAdapter("textServiceStation")
-fun TextView.setEventServiceStation(item: Event?) {
+fun TextView.setEventServiceStation(item: CategoryWithParameters?) {
     item?.let {
-        if (item.serviceStationName.length < 2) {
-            text = ""
+        val serviceStationText = findParameterValueByName(item.parameters, "Service Station Name")
+
+        text = if (serviceStationText!!.toInt() < 0) {
+            ""
         } else {
-            text = item.serviceStationName
+            serviceStationText
         }
     }
 }
 
 @BindingAdapter("visibilityServiceStation")
-fun TextView.setVisibilityServiceStation(item: Event?) {
+fun TextView.setVisibilityServiceStation(item: CategoryWithParameters?) {
     item?.let {
-        visibility = if (item.serviceStationName.length < 2) {
+        val serviceStationText = findParameterValueByName(item.parameters, "Service Station Name")
+
+        visibility = if (serviceStationText!!.toInt() < 0) {
             View.GONE
         } else {
             View.VISIBLE
@@ -119,9 +138,11 @@ fun TextView.setVisibilityServiceStation(item: Event?) {
 }
 
 @BindingAdapter("textRating")
-fun TextView.setEventRating(item: Event?) {
+fun TextView.setEventRating(item: CategoryWithParameters?) {
     item?.let {
-        text = if (item.serviceRating == true) {
+        val ratingText = findParameterValueByName(item.parameters, "Service Rating")
+
+        text = if (ratingText!!.toBoolean()) {
             "Ok"
         } else {
             "Not ok"
@@ -130,31 +151,10 @@ fun TextView.setEventRating(item: Event?) {
 }
 
 @BindingAdapter("visibilityRating")
-fun TextView.setVisibilityRating(item: Event?) {
+fun TextView.setVisibilityRating(item: CategoryWithParameters?) {
     item?.let {
-        visibility = if (item.serviceRating == null) {
-            View.GONE
-        } else {
-            View.VISIBLE
-        }
-    }
-}
-
-@BindingAdapter("textComment")
-fun TextView.setEventComment(item: Event?) {
-    item?.let {
-        if (item.comment.length < 2) {
-            text = ""
-        } else {
-            text = item.comment
-        }
-    }
-}
-
-@BindingAdapter("visibilityComment")
-fun TextView.setVisibilityComment(item: Event?) {
-    item?.let {
-        visibility = if (item.comment.length < 2) {
+        val ratingText = findParameterValueByName(item.parameters, "Service Rating")
+        visibility = if (ratingText == null) {
             View.GONE
         } else {
             View.VISIBLE
@@ -163,11 +163,47 @@ fun TextView.setVisibilityComment(item: Event?) {
 }
 
 @BindingAdapter("ratingSwitchIsChecked")
-fun SwitchMaterial.setRatingSwitchToChecked(item: Event?) {
+fun SwitchMaterial.setRatingSwitchToChecked(item: CategoryWithParameters?) {
     item?.let {
-        isChecked = item.serviceRating
+        val ratingText = findParameterValueByName(item.parameters, "Service Rating")
+        isChecked = ratingText!!.toBoolean()
     }
 }
 
+@BindingAdapter("textComment")
+fun TextView.setEventComment(item: CategoryWithParameters?) {
+    item?.let {
+        val commentText = findParameterValueByName(item.parameters, "Comment")
+        if (commentText!!.length < 2) {
+            text = ""
+        } else {
+            text = commentText
+        }
+    }
+}
 
+@BindingAdapter("visibilityComment")
+fun TextView.setVisibilityComment(item: CategoryWithParameters?) {
+    item?.let {
+        val commentText = findParameterValueByName(item.parameters, "Comment")
+        visibility = if (commentText!!.length < 2) {
+            View.GONE
+        } else {
+            View.VISIBLE
+        }
+    }
+}
 
+fun findParameterValueByName(parameterList: List<Parameter>, parameterName: String): String? {
+    var parameterValue = null
+    if (parameterList.isNotEmpty()){
+        var parameterValue: String? = null
+        for (i in 0..parameterList.size) {
+            if (parameterList[i].name == parameterName) {
+                parameterValue = parameterList[i].value
+            }
+        }
+    }
+
+    return parameterValue
+}

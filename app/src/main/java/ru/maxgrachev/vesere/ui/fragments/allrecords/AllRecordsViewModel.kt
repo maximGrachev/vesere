@@ -1,11 +1,13 @@
 package ru.maxgrachev.vesere.ui.fragments.allrecords
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.maxgrachev.vesere.data.local.entity.Category
+import ru.maxgrachev.vesere.data.local.entity.relations.CategoryWithParameters
 import ru.maxgrachev.vesere.repository.CategoryRepository
 import ru.maxgrachev.vesere.utils.formatEvents
 
@@ -18,8 +20,9 @@ class AllRecordsViewModel(
         Application()
     ) {
 
-    lateinit var records: LiveData<List<Category>>
+    var recordsWithParameter: LiveData<List<CategoryWithParameters>>
     private var arg: String = arguments.eventTypeKeyWord
+
 
     private val _navigateToEventDetail = MutableLiveData<Int>()
     val navigateToEventDetail
@@ -30,11 +33,11 @@ class AllRecordsViewModel(
         get() = _navigateToEditEvent
 
     init {
-        records = takeEventData(arg)
+        recordsWithParameter = takeRecordsWithParameterData()
     }
 
-    val showingRecordsString = Transformations.map(records) { records ->
-        formatEvents(records, application.resources)
+    val showingRecordsString = Transformations.map(recordsWithParameter) { recordsWithParameter ->
+        formatEvents(recordsWithParameter, application.resources)
     }
 
     private fun takeEventData(arg: String): LiveData<List<Category>> {
@@ -47,6 +50,10 @@ class AllRecordsViewModel(
             else -> categoryRepository.categoryList
 //        }
         }
+    }
+
+    private fun takeRecordsWithParameterData(): LiveData<List<CategoryWithParameters>>{
+        return categoryRepository.getAllCategoryWithParameter()
     }
 
     fun onEventClicked(id: Int) {
@@ -65,9 +72,9 @@ class AllRecordsViewModel(
         _navigateToEditEvent.value = null
     }
 
-    fun deleteEvent(event: Category) {
+    fun deleteEvent(category: CategoryWithParameters) {
         viewModelScope.launch {
-            categoryRepository.delete(event)
+            categoryRepository.delete(category)
         }
     }
 }
